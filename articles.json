@@ -1,0 +1,15 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "School Spirit Week Breaks Records",
+      "slug": "spirit-week-records",
+      "category": "news",
+      "author": "Mike Rodriguez",
+      "date": "2024-01-14",
+      "excerpt": "This year's Spirit Week saw unprecedented...",
+      "content": "Full article content...",
+      "featured": true
+    }
+  ]
+}

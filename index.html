@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulldog Inquirer - Student Newspaper</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .logo-text p {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: #2563eb;
+            background: #eff6ff;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            color: white;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-badge {
+            background: #dc2626;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more {
+            background: white;
+            color: #1e40af;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .read-more:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Articles Section */
+        .articles-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .articles-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .articles-header p {
+            font-size: 1.125rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Search and Filter */
+        .search-filter {
+            margin-bottom: 3rem;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-filter {
+            padding: 0.5rem 1rem;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .category-filter:hover, .category-filter.active {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 1px solid #e5e7eb;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .article-image.basketball {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="%23000"/><circle cx="200" cy="180" r="60" fill="%23d97706" stroke="%23000" stroke-width="3"/><path d="M200 120 L200 240 M140 180 L260 180" stroke="%23000" stroke-width="2" fill="none"/><polygon points="200,50 220,90 180,90" fill="%23fff"/></svg>') center/cover;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-category {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        /* About Section */
+        .about-section {
+            background: #f9fafb;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            border-radius: 12px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: #eff6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: #2563eb;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        .value-card p {
+            color: #666;
+            text-align: center;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2563eb;
+            color: white;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .contact-item .icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav {
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .articles-header h2 {
+                font-size: 2rem;
+            }
+
+            .category-filters {
+                gap: 0.5rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">📰</div>
+            <div class="logo-text">
+                <h1>Bulldog Inquirer</h1>
+                <p>Student Newspaper</p>
+            </div>
+        </div>
+        <nav class="nav">
+            <a href="#" onclick="showPage('home')" class="nav-link active">🏠 Home</a>
+            <a href="#" onclick="showPage('articles')" class="nav-link">📰 Articles</a>
+            <a href="#" onclick="showPage('about')" class="nav-link">👥 About Us</a>
+        </nav>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="featured-badge">FEATURED STORY</span>
+                <h2>School Spirit Week Breaks Participation Records</h2>
+                <p>This year's Spirit Week saw unprecedented student engagement with over 90% participation across all grades</p>
+                <div class="hero-meta">
+                    <span>👤 By Mike Rodriguez</span>
+                    <span>📅 Jan 14, 2024</span>
+                </div>
+                <button class="read-more" onclick="showPage('articles')">Read Full Story →</button>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <!-- Latest Articles Preview -->
+            <section class="articles-preview">
+                <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Latest Articles</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 3rem;">Stay updated with the latest news and stories</p>
+                
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <div class="article-image">📰</div>
+                        <div class="article-content">
+                            <span class="article-category">Uncategorized</span>
+                            <h3 class="article-title">School Spirit Week Breaks Participation Records</h3>
+                            <p class="article-excerpt">This year's Spirit Week saw unprecedented student engagement with over 90% participation across all grades</p>
+                            <div class="article-meta">
+                                <span>By Mike Rodriguez</span>
+                                <span>Jan 14, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-image basketball"></div>
+                        <div class="article-content">
+                            <span class="article-category">Sports</span>
+                            <h3 class="article-title">Varsity Basketball Team Advances to State Championships</h3>
+                            <p class="article-excerpt">After a stunning 78-65 victory over Central High, our Eagles are heading to the state tournament for the first time in five years</p>
+                            <div class="article-meta">
+                                <span>By Sarah Johnson</span>
+                                <span>Jan 12, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="read-more" onclick="showPage('articles')" style="background: #000; color: white;">View All Articles →</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Articles Page -->
+    <div id="articles" class="page">
+        <div class="main-content">
+            <div class="articles-header">
+                <h2>All Articles</h2>
+                <p>Explore our collection of stories, news, and insights from the School Herald team</p>
+            </div>
+
+            <div class="search-filter">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search articles..." onkeyup="searchArticles()">
+                </div>
+                
+                <div class="category-filters">
+                    <span class="filter-label">🔽 Filter by Category</span>
+                    <a href="#" class="category-filter active" onclick="filterArticles('all')">All</a>
+                    <a href="#" class="category-filter" onclick="filterArticles('academics')">Academics</a>
+                    <a href="#" class="category-filter" onclick="filterArticles('arts')">Arts & Culture</a>
+                    <a href="#" class="category-filter" onclick="filterArticles('news')">News</a>
+                    <a href="#" class="category-filter" onclick="filterArticles('opinion')">Opinion</a>
+                    <a href="#" class="category-filter" onclick="filterArticles('sports')">Sports</a>
+                </div>
+            </div>
+
+            <p style="color: #666; margin-bottom: 2rem;">Showing 3 articles</p>
+
+            <div class="articles-grid" id="articlesGrid">
+                <div class="article-card" data-category="news">
+                    <div class="article-image">📰</div>
+                    <div class="article-content">
+                        <span class="article-category">News</span>
+                        <h3 class="article-title">School Spirit Week Breaks Participation Records</h3>
+                        <p class="article-excerpt">This year's Spirit Week saw unprecedented student engagement with over 90% participation across all grades</p>
+                        <div class="article-meta">
+                            <span>By Mike Rodriguez</span>
+                            <span>Jan 14, 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" data-category="sports">
+                    <div class="article-image basketball"></div>
+                    <div class="article-content">
+                        <span class="article-category">Sports</span>
+                        <h3 class="article-title">Varsity Basketball Team Advances to State Championships</h3>
+                        <p class="article-excerpt">After a stunning 78-65 victory over Central High, our Eagles are heading to the state tournament for the first time in five years</p>
+                        <div class="article-meta">
+                            <span>By Sarah Johnson</span>
+                            <span>Jan 12, 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card" data-category="arts">
+                    <div class="article-image">🎭</div>
+                    <div class="article-content">
+                        <span class="article-category">Arts & Culture</span>
+                        <h3 class="article-title">Fall Drama Production Showcases Student Talent</h3>
+                        <p class="article-excerpt">The fall production showcases exceptional student talent and months of dedicated preparation</p>
+                        <div class="article-meta">
+                            <span>By Jordan Martinez</span>
+                            <span>Jan 9, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="main-content">
+            <div class="about-section">
+                <div class="about-content">
+                    <h2>About Bulldog Inquirer</h2>
+                    <p>We are the voice of our student body, dedicated to bringing you the stories that matter, the news that shapes our community, and the perspectives that make our school unique.</p>
+                </div>
+            </div>
+
+            <section style="margin: 4rem 0;">
+                <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">📰</div>
+                        <h3>Truth & Accuracy</h3>
+                        <p>We are committed to reporting facts and providing accurate, well-researched journalism that our community can trust.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">👥</div>
+                        <h3>Student Voice</h3>
+                        <p>Our newspaper exists to amplify student perspectives and ensure every voice in our school community is heard.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">🏆</div>
+                        <h3>Excellence</h3>
+                        <p>We strive for the highest standards in writing, reporting, and design to create content we're proud of.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">❤️</div>
+                        <h3>Community</h3>
+                        <p>We believe in fostering connections and building a stronger school community through shared stories.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin: 4rem 0;">
+                <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem;">Meet Our Team</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">👩‍💼</div>
+                        <h3>Sarah Johnson</h3>
+                        <p>Editor-in-Chief</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">👨‍💼</div>
+                        <h3>Michael Chen</h3>
+                        <p>Managing Editor</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">👩‍📝</div>
+                        <h3>Emma Rodriguez</h3>
+                        <p>News Editor</p>
+                    </div>
+                </div>
+            </section>
+
+            <section style="background: #f9fafb; padding: 3rem 2rem; border-radius: 12px; text-align: center;">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem;">Awards & Recognition</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🏆</div>
+                        <h3>Best School Newspaper</h3>
+                        <p>State High School Journalism Association 2023</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">📰</div>
+                        <h3>Excellence in Writing</h3>
+                        <p>Regional Press Club Award 2023</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">👥</div>
+                        <h3>Community Impact</h3>
+                        <p>School District Recognition 2023</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>Get In Touch</h2>
+            <p>Have a story idea, news tip, or want to join our team? We'd love to hear from you!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon">📧</div>
+                    <div>
+                        <strong>Email Us</strong><br>
+                        inquirer@school.edu
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <div>
+                        <strong>Visit Us</strong><br>
+                        Room 204, Main Building
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Search functionality
+        function searchArticles() {
+            const searchTerm = event.target.value.toLowerCase();
+            const articles = document.querySelectorAll('#articlesGrid .article-card');
+            
+            articles.forEach(article => {
+                const title = article.querySelector('.article-title').textContent.toLowerCase();
+                const excerpt = article.querySelector('.article-excerpt').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        }
+
+        // Filter functionality
+        function filterArticles(category) {
+            const articles = document.querySelectorAll('#articlesGrid .article-card');
+            
+            // Update active filter
+            document.querySelectorAll('.category-filter').forEach(filter => {
+                filter.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Filter articles
+            articles.forEach(article => {
+                if (category === 'all' || article.dataset.category === category) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        }
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers for navigation
+            document.querySelectorAll('.nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

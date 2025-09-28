@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Article Admin</title>
+</head>
+<body>
+    <h1>Add New Article</h1>
+    <form id="articleForm">
+        <input type="text" id="title" placeholder="Title" required>
+        <select id="category">
+            <option value="news">News</option>
+            <option value="sports">Sports</option>
+            <option value="arts">Arts & Culture</option>
+        </select>
+        <input type="text" id="author" placeholder="Author" required>
+        <textarea id="content" placeholder="Article content"></textarea>
+        <button type="submit">Generate JSON</button>
+    </form>
+    <div id="output"></div>
+</body>
+</html>
