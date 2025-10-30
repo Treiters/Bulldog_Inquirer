@@ -420,6 +420,371 @@
             line-height: 1.5;
         }
 
+        /* Archives Styles */
+        .breadcrumb {
+            background: #f9fafb;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .breadcrumb-item {
+            cursor: pointer;
+            color: #2563eb;
+            transition: all 0.2s;
+        }
+
+        .breadcrumb-item:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-item.current {
+            color: #374151;
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .breadcrumb-item.current:hover {
+            text-decoration: none;
+        }
+
+        .file-browser {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+        }
+
+        .file-item {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .file-item:last-child {
+            border-bottom: none;
+        }
+
+        .file-item:hover {
+            background: #f9fafb;
+        }
+
+        .file-icon {
+            width: 48px;
+            height: 48px;
+            background: #eff6ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .file-icon.folder {
+            background: #fef3c7;
+        }
+
+        .file-icon.document {
+            background: #dbeafe;
+        }
+
+        .file-icon.pdf {
+            background: #fee2e2;
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 0.25rem;
+        }
+
+        .file-meta {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .download-btn {
+            padding: 0.5rem 1rem;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+        }
+
+        .download-btn:hover {
+            background: #1e40af;
+            transform: translateY(-1px);
+        }
+
+        /* Login Section */
+        .login-container {
+            max-width: 400px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .login-panel {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+        }
+
+        .login-panel h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #111;
+        }
+
+        /* Admin Section */
+        .admin-panel {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            cursor: pointer;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+
+        .btn-danger {
+            background: #dc2626;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-danger:hover {
+            background: #b91c1c;
+        }
+
+        .article-list {
+            margin-top: 2rem;
+        }
+
+        .article-list-item {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .article-list-info h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .article-list-info p {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .article-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .user-list-item {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .user-list-info h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .user-list-info p {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .alert-info {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #93c5fd;
+        }
+
+        .alert-warning {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
+        .alert-danger {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+
+        .pdf-upload-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f3f4f6;
+            border-radius: 8px;
+            border: 2px dashed #9ca3af;
+        }
+
+        .pdf-upload-section h4 {
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        .pdf-upload-section p {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .pdf-upload-section input[type="file"] {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        #pdfStatus {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 1.5rem 0;
+            color: #9ca3af;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: #e5e7eb;
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
         /* Footer */
         .footer {
             background: #2563eb;
@@ -471,6 +836,161 @@
             font-size: 1.2rem;
         }
 
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 2rem;
+            border-bottom: 2px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .modal-close {
+            background: #f3f4f6;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .modal-close:hover {
+            background: #e5e7eb;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-category {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: capitalize;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: #111;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #e5e7eb;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .modal-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-article-content {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #333;
+            white-space: pre-wrap;
+        }
+
+        .modal-article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            color: #2563eb;
+        }
+
+        .tab.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header {
@@ -509,14 +1029,25 @@
                 flex-direction: column;
                 gap: 1.5rem;
             }
-        }
 
-        .page {
-            display: none;
-        }
+            .article-list-item, .user-list-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
 
-        .page.active {
-            display: block;
+            .modal-content {
+                margin: 1rem;
+            }
+
+            .modal-title {
+                font-size: 1.75rem;
+            }
+
+            .modal-meta {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -530,11 +1061,20 @@
                 <p>Student Newspaper</p>
             </div>
         </div>
-        <nav class="nav">
-            <a href="#" onclick="showPage('home')" class="nav-link active">🏠 Home</a>
-            <a href="#" onclick="showPage('articles')" class="nav-link">📰 Articles</a>
-            <a href="#" onclick="showPage('about')" class="nav-link">👥 About Us</a>
-        </nav>
+        <div class="user-info">
+            <nav class="nav">
+                <a class="nav-link active" data-page="home">🏠 Home</a>
+                <a class="nav-link" data-page="articles">📰 Articles</a>
+                <a class="nav-link" data-page="archives">📁 Archives</a>
+                <a class="nav-link" data-page="about">👥 About Us</a>
+                <a class="nav-link hidden" id="adminNavLink" data-page="admin">⚙️ Admin</a>
+            </nav>
+            <div id="userDisplay" class="hidden">
+                <span class="user-badge" id="userBadge">👤 Guest</span>
+                <button class="btn btn-secondary" id="logoutBtn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Logout</button>
+            </div>
+            <button class="btn btn-primary" id="loginNavBtn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Login</button>
+        </div>
     </header>
 
     <!-- Home Page -->
@@ -595,44 +1135,25 @@
             <p id="articleCount" style="color: #666; margin-bottom: 2rem;">Loading...</p>
 
             <div class="articles-grid" id="articlesGrid">
-                <div class="article-card" data-category="news">
-                    <div class="article-image">📰</div>
-                    <div class="article-content">
-                        <span class="article-category">News</span>
-                        <h3 class="article-title">School Spirit Week Breaks Participation Records</h3>
-                        <p class="article-excerpt">This year's Spirit Week saw unprecedented student engagement with over 90% participation across all grades</p>
-                        <div class="article-meta">
-                            <span>By Mike Rodriguez</span>
-                            <span>Jan 14, 2024</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="loading">Loading articles...</div>
+            </div>
+        </div>
+    </div>
 
-                <div class="article-card" data-category="sports">
-                    <div class="article-image basketball"></div>
-                    <div class="article-content">
-                        <span class="article-category">Sports</span>
-                        <h3 class="article-title">Varsity Basketball Team Advances to State Championships</h3>
-                        <p class="article-excerpt">After a stunning 78-65 victory over Central High, our Eagles are heading to the state tournament for the first time in five years</p>
-                        <div class="article-meta">
-                            <span>By Sarah Johnson</span>
-                            <span>Jan 12, 2024</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- Archives Page -->
+    <div id="archives" class="page">
+        <div class="main-content">
+            <div class="articles-header">
+                <h2>📁 Archives</h2>
+                <p>Browse our collection of past articles and interviews</p>
+            </div>
 
-                <div class="article-card" data-category="arts">
-                    <div class="article-image">🎭</div>
-                    <div class="article-content">
-                        <span class="article-category">Arts & Culture</span>
-                        <h3 class="article-title">Fall Drama Production Showcases Student Talent</h3>
-                        <p class="article-excerpt">The fall production showcases exceptional student talent and months of dedicated preparation</p>
-                        <div class="article-meta">
-                            <span>By Jordan Martinez</span>
-                            <span>Jan 9, 2024</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="breadcrumb" id="archiveBreadcrumb">
+                <span class="breadcrumb-item current">Old Articles</span>
+            </div>
+
+            <div class="file-browser" id="archiveBrowser">
+                <div class="loading">Loading archives...</div>
             </div>
         </div>
     </div>
@@ -690,34 +1211,122 @@
                         <label for="loginPassword">Password</label>
                         <input type="password" id="loginPassword" required placeholder="Enter password">
                     </div>
-                    <div class="value-card">
-                        <div class="value-icon">👩‍📝</div>
-                        <h3>Emma Rodriguez</h3>
-                        <p>News Editor</p>
-                    </div>
-                </div>
-            </section>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-            <section style="background: #f9fafb; padding: 3rem 2rem; border-radius: 12px; text-align: center;">
-                <h2 style="font-size: 2rem; margin-bottom: 2rem;">Awards & Recognition</h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">🏆</div>
-                        <h3>Best School Newspaper</h3>
-                        <p>State High School Journalism Association 2023</p>
+    <!-- Admin Page -->
+    <div id="admin" class="page">
+        <div class="main-content">
+            <div class="articles-header">
+                <h2>Admin Dashboard</h2>
+                <p id="adminWelcome">Manage articles and users</p>
+            </div>
+
+            <div class="tabs">
+                <div class="tab active" data-tab="articles">📰 Articles</div>
+                <div class="tab hidden" id="usersTab" data-tab="users">👥 Users</div>
+            </div>
+
+            <!-- Articles Tab -->
+            <div id="articlesTab" class="tab-content">
+                <div class="admin-panel">
+                    <h3 style="margin-bottom: 1.5rem;">Add New Article</h3>
+                    
+                    <!-- PDF Upload Section -->
+                    <div class="pdf-upload-section">
+                        <h4>📄 Upload Article from PDF</h4>
+                        <p>Upload a PDF file and we'll extract the text for you automatically</p>
+                        <input type="file" id="pdfUpload" accept=".pdf">
+                        <button type="button" id="extractPdfBtn" class="btn btn-secondary">Extract from PDF</button>
+                        <div id="pdfStatus"></div>
                     </div>
-                    <div class="value-card">
-                        <div class="value-icon">📰</div>
-                        <h3>Excellence in Writing</h3>
-                        <p>Regional Press Club Award 2023</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">👥</div>
-                        <h3>Community Impact</h3>
-                        <p>School District Recognition 2023</p>
+
+                    <div class="divider">OR ENTER MANUALLY</div>
+
+                    <!-- Manual Article Form -->
+                    <form id="articleForm">
+                        <div class="form-group">
+                            <label for="articleTitle">Article Title *</label>
+                            <input type="text" id="articleTitle" required placeholder="Enter article title">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="articleCategory">Category *</label>
+                            <select id="articleCategory" required>
+                                <option value="news">News</option>
+                                <option value="sports">Sports</option>
+                                <option value="arts">Arts & Culture</option>
+                                <option value="academics">Academics</option>
+                                <option value="opinion">Opinion</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="articleExcerpt">Excerpt *</label>
+                            <textarea id="articleExcerpt" required placeholder="Brief summary (1-2 sentences)"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="articleContent">Full Content *</label>
+                            <textarea id="articleContent" required placeholder="Full article content" style="min-height: 250px;"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="articleFeatured">
+                                <label for="articleFeatured" style="margin: 0;">Feature on homepage</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Publish Article</button>
+                    </form>
+                </div>
+
+                <div class="admin-panel">
+                    <h3 style="margin-bottom: 1.5rem;">Published Articles</h3>
+                    <div id="articleList" class="article-list">
+                        <div class="loading">Loading articles...</div>
                     </div>
                 </div>
-            </section>
+            </div>
+
+            <!-- Users Tab -->
+            <div id="usersTabContent" class="tab-content hidden">
+                <div class="alert alert-info">
+                    <strong>User Management</strong><br>
+                    Manage user roles and permissions. Use Firebase Console to create users.
+                </div>
+
+                <div class="admin-panel">
+                    <h3 style="margin-bottom: 1.5rem;">All Users</h3>
+                    <div id="userList">
+                        <div class="loading">Loading users...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Modal -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div style="flex: 1;">
+                    <span class="modal-category" id="modalCategory"></span>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                </div>
+                <button class="modal-close" id="modalClose">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-meta">
+                    <span id="modalAuthor">👤 By Author</span>
+                    <span id="modalDate">📅 Date</span>
+                </div>
+                <div class="modal-article-content" id="modalContent"></div>
+            </div>
         </div>
     </div>
 
@@ -745,73 +1354,783 @@
         </div>
     </footer>
 
+    <!-- PDF.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script>
-        // Navigation functionality
-        function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
+        if (typeof pdfjsLib !== 'undefined') {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
+    </script>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, where, updateDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgD8oHQ2MHoKD3B60pNi_giKO9lcft4Gs",
+            authDomain: "bulldoginquirer.firebaseapp.com",
+            projectId: "bulldoginquirer",
+            storageBucket: "bulldoginquirer.firebasestorage.app",
+            messagingSenderId: "69389144325",
+            appId: "1:69389144325:web:fdcf8ef7eeeaa46280276c",
+            measurementId: "G-EFESP30LZX"
+        };
+
+        // Initialize Firebase
+        let app, auth, db;
+        let currentUser = null;
+        let currentUserData = null;
+        let allArticles = [];
+        let allUsers = [];
+        let archiveIndex = null;
+        let currentArchivePath = [];
+        let currentFilter = 'all';
+        let currentSearch = '';
+
+        try {
+            app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            console.log('Firebase initialized successfully');
+        } catch (error) {
+            console.error('Firebase initialization error:', error);
+            alert('Error connecting to database. Please check your internet connection.');
+        }
+
+        // Initialize app
+        function init() {
+            setupEventListeners();
+            setupAuthListener();
+            loadArchiveIndex();
+        }
+
+        // Setup authentication listener
+        function setupAuthListener() {
+            if (!auth) return;
+            
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    currentUser = user;
+                    await loadUserData(user.uid);
+                    await loadArticles();
+                    await loadUsers();
+                    updateUIForUser();
+                    renderHomePage();
+                    renderArticlesPage();
+                } else {
+                    currentUser = null;
+                    currentUserData = null;
+                    await loadArticles();
+                    updateUIForUser();
+                    renderHomePage();
+                    renderArticlesPage();
+                }
+            });
+        }
+
+        // Load user data from Firestore
+        async function loadUserData(uid) {
+            try {
+                const usersRef = collection(db, 'users');
+                const q = query(usersRef, where('uid', '==', uid));
+                const snapshot = await getDocs(q);
+                
+                if (!snapshot.empty) {
+                    currentUserData = { id: snapshot.docs[0].id, ...snapshot.docs[0].data() };
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
+        // Load articles from Firestore
+        async function loadArticles() {
+            try {
+                const articlesRef = collection(db, 'articles');
+                const q = query(articlesRef, orderBy('timestamp', 'desc'));
+                const snapshot = await getDocs(q);
+                
+                allArticles = snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+            } catch (error) {
+                console.error('Error loading articles:', error);
+                allArticles = [];
+            }
+        }
+
+        // Load users from Firestore
+        async function loadUsers() {
+            if (!currentUserData || currentUserData.role !== 'admin') return;
+            
+            try {
+                const usersRef = collection(db, 'users');
+                const snapshot = await getDocs(usersRef);
+                
+                allUsers = snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+            } catch (error) {
+                console.error('Error loading users:', error);
+                allUsers = [];
+            }
+        }
+
+        // Load archive index from JSON file
+        async function loadArchiveIndex() {
+            try {
+                const response = await fetch('/archive-index.json');
+                if (response.ok) {
+                    archiveIndex = await response.json();
+                    renderArchivesPage();
+                } else {
+                    archiveIndex = null;
+                    renderArchivesPage();
+                }
+            } catch (error) {
+                console.error('Error loading archive index:', error);
+                archiveIndex = null;
+                renderArchivesPage();
+            }
+        }
+
+        // Render archives page
+        function renderArchivesPage() {
+            const browserDiv = document.getElementById('archiveBrowser');
+            
+            if (!archiveIndex) {
+                browserDiv.innerHTML = `
+                    <div class="loading">
+                        <p>No archives available yet.</p>
+                        <p style="margin-top: 1rem; color: #666;">Archive files will appear here once uploaded.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Navigate to current path
+            let currentNode = archiveIndex;
+            for (const pathPart of currentArchivePath) {
+                currentNode = currentNode.children.find(c => c.name === pathPart);
+                if (!currentNode) {
+                    currentArchivePath = [];
+                    currentNode = archiveIndex;
+                    break;
+                }
+            }
+            
+            // Render breadcrumb
+            renderArchiveBreadcrumb();
+            
+            // Render current directory
+            if (!currentNode.children || currentNode.children.length === 0) {
+                browserDiv.innerHTML = '<div class="loading">This folder is empty.</div>';
+                return;
+            }
+            
+            browserDiv.innerHTML = currentNode.children.map(item => {
+                if (item.type === 'folder') {
+                    return `
+                        <div class="file-item" data-type="folder" data-name="${item.name}">
+                            <div class="file-icon folder">📁</div>
+                            <div class="file-info">
+                                <div class="file-name">${item.name}</div>
+                                <div class="file-meta">Folder</div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    const isDocx = item.name.endsWith('.docx') || item.name.endsWith('.doc');
+                    const isPdf = item.name.endsWith('.pdf');
+                    const icon = isPdf ? '📕' : '📄';
+                    const iconClass = isPdf ? 'pdf' : 'document';
+                    const filePath = item.path;
+                    
+                    return `
+                        <div class="file-item" data-type="file">
+                            <div class="file-icon ${iconClass}">${icon}</div>
+                            <div class="file-info">
+                                <div class="file-name">${item.name}</div>
+                                <div class="file-meta">${isPdf ? 'PDF Document' : 'Word Document'}</div>
+                            </div>
+                            <button class="download-btn" data-path="/${filePath}" data-name="${item.name}">
+                                Download
+                            </button>
+                        </div>
+                    `;
+                }
+            }).join('');
+            
+            // Attach event listeners
+            document.querySelectorAll('.file-item[data-type="folder"]').forEach(folder => {
+                folder.addEventListener('click', () => {
+                    currentArchivePath.push(folder.dataset.name);
+                    renderArchivesPage();
+                });
             });
             
-            // Show selected page
+            document.querySelectorAll('.download-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const path = btn.dataset.path;
+                    const name = btn.dataset.name;
+                    downloadFile(path, name);
+                });
+            });
+        }
+
+        // Render archive breadcrumb
+        function renderArchiveBreadcrumb() {
+            const breadcrumbDiv = document.getElementById('archiveBreadcrumb');
+            let html = '<span class="breadcrumb-item" data-index="-1">Old Articles</span>';
+            
+            for (let i = 0; i < currentArchivePath.length; i++) {
+                html += ` <span>›</span> <span class="breadcrumb-item ${i === currentArchivePath.length - 1 ? 'current' : ''}" data-index="${i}">${currentArchivePath[i]}</span>`;
+            }
+            
+            breadcrumbDiv.innerHTML = html;
+            
+            // Attach click listeners
+            document.querySelectorAll('.breadcrumb-item').forEach(item => {
+                if (!item.classList.contains('current')) {
+                    item.addEventListener('click', () => {
+                        const index = parseInt(item.dataset.index);
+                        if (index === -1) {
+                            currentArchivePath = [];
+                        } else {
+                            currentArchivePath = currentArchivePath.slice(0, index + 1);
+                        }
+                        renderArchivesPage();
+                    });
+                }
+            });
+        }
+
+        // Download file
+        function downloadFile(path, filename) {
+            const a = document.createElement('a');
+            a.href = path;
+            a.download = filename;
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = link.dataset.page;
+                    
+                    if (page === 'admin' && !currentUser) {
+                        showPage('login');
+                        return;
+                    }
+                    
+                    if (page === 'admin') {
+                        renderAdminPage();
+                    }
+                    
+                    if (page === 'archives') {
+                        currentArchivePath = [];
+                        renderArchivesPage();
+                    }
+                    
+                    showPage(page);
+                });
+            });
+
+            // Read more buttons
+            document.querySelectorAll('[data-page]').forEach(btn => {
+                if (!btn.classList.contains('nav-link')) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showPage(btn.dataset.page);
+                    });
+                }
+            });
+
+            // Login nav button
+            document.getElementById('loginNavBtn').addEventListener('click', () => {
+                showPage('login');
+            });
+
+            // Logout button
+            document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+
+            // Login form
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
+
+            // Search
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                currentSearch = e.target.value.toLowerCase();
+                renderArticlesPage();
+            });
+
+            // Category filters
+            document.querySelectorAll('.category-filter').forEach(filter => {
+                filter.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.querySelectorAll('.category-filter').forEach(f => f.classList.remove('active'));
+                    filter.classList.add('active');
+                    currentFilter = filter.dataset.category;
+                    renderArticlesPage();
+                });
+            });
+
+            // Article form
+            document.getElementById('articleForm').addEventListener('submit', handleArticleSubmit);
+
+            // PDF Upload
+            document.getElementById('extractPdfBtn').addEventListener('click', handlePdfExtraction);
+
+            // Tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    const tabName = tab.dataset.tab;
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    if (tabName === 'articles') {
+                        document.getElementById('articlesTab').classList.remove('hidden');
+                    } else if (tabName === 'users') {
+                        document.getElementById('usersTabContent').classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Modal close
+            document.getElementById('modalClose').addEventListener('click', closeModal);
+            document.getElementById('articleModal').addEventListener('click', (e) => {
+                if (e.target.id === 'articleModal') {
+                    closeModal();
+                }
+            });
+        }
+
+        // Open article modal
+        function openArticleModal(article) {
+            const modal = document.getElementById('articleModal');
+            document.getElementById('modalCategory').textContent = article.category;
+            document.getElementById('modalTitle').textContent = article.title;
+            document.getElementById('modalAuthor').textContent = `👤 By ${article.authorName}`;
+            document.getElementById('modalDate').textContent = `📅 ${formatDate(article.date)}`;
+            document.getElementById('modalContent').textContent = article.content;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('articleModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Handle PDF extraction
+        async function handlePdfExtraction() {
+            const fileInput = document.getElementById('pdfUpload');
+            const statusDiv = document.getElementById('pdfStatus');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                statusDiv.textContent = '⚠️ Please select a PDF file first';
+                statusDiv.style.color = '#dc2626';
+                return;
+            }
+
+            if (file.type !== 'application/pdf') {
+                statusDiv.textContent = '⚠️ Please select a valid PDF file';
+                statusDiv.style.color = '#dc2626';
+                return;
+            }
+
+            statusDiv.textContent = '⏳ Extracting text from PDF...';
+            statusDiv.style.color = '#2563eb';
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+                
+                let fullText = '';
+                
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const textContent = await page.getTextContent();
+                    const pageText = textContent.items.map(item => item.str).join(' ');
+                    fullText += pageText + '\n\n';
+                }
+
+                if (!fullText.trim()) {
+                    statusDiv.textContent = '⚠️ No text found in PDF';
+                    statusDiv.style.color = '#dc2626';
+                    return;
+                }
+
+                // Populate the content field
+                document.getElementById('articleContent').value = fullText.trim();
+                
+                // Try to extract a title (first line or first 100 chars)
+                const lines = fullText.trim().split('\n').filter(line => line.trim());
+                if (lines.length > 0 && lines[0].length < 200) {
+                    document.getElementById('articleTitle').value = lines[0].substring(0, 100);
+                }
+
+                // Try to create an excerpt from the first few sentences
+                const sentences = fullText.trim().split(/[.!?]+/).filter(s => s.trim());
+                if (sentences.length > 0) {
+                    const excerpt = sentences.slice(0, 2).join('. ').substring(0, 200) + '...';
+                    document.getElementById('articleExcerpt').value = excerpt;
+                }
+
+                statusDiv.textContent = '✅ Text extracted successfully! Please review and edit as needed.';
+                statusDiv.style.color = '#059669';
+                
+                // Scroll to form
+                document.getElementById('articleTitle').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } catch (error) {
+                console.error('Error extracting PDF:', error);
+                statusDiv.textContent = '❌ Error extracting text from PDF. Please try again or enter manually.';
+                statusDiv.style.color = '#dc2626';
+            }
+        }
+
+        // Handle login
+        async function handleLogin(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('loginError');
+
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                document.getElementById('loginForm').reset();
+                errorDiv.classList.add('hidden');
+                showPage('admin');
+            } catch (error) {
+                console.error('Login error:', error);
+                errorDiv.textContent = 'Invalid email or password';
+                errorDiv.classList.remove('hidden');
+            }
+        }
+
+        // Handle logout
+        async function handleLogout() {
+            try {
+                await signOut(auth);
+                showPage('home');
+                alert('You have been logged out');
+            } catch (error) {
+                console.error('Logout error:', error);
+                alert('Error logging out');
+            }
+        }
+
+        // Update UI based on current user
+        function updateUIForUser() {
+            const loginBtn = document.getElementById('loginNavBtn');
+            const userDisplay = document.getElementById('userDisplay');
+            const userBadge = document.getElementById('userBadge');
+            const adminNavLink = document.getElementById('adminNavLink');
+            const usersTab = document.getElementById('usersTab');
+
+            if (currentUser && currentUserData) {
+                loginBtn.classList.add('hidden');
+                userDisplay.classList.remove('hidden');
+                
+                const roleEmoji = currentUserData.role === 'admin' ? '👑' : currentUserData.role === 'writer' ? '✍️' : '👤';
+                userBadge.textContent = `${roleEmoji} ${currentUserData.fullName}`;
+                userBadge.className = `user-badge ${currentUserData.role}`;
+                
+                if (currentUserData.role === 'admin' || currentUserData.role === 'writer') {
+                    adminNavLink.classList.remove('hidden');
+                    
+                    if (currentUserData.role === 'admin') {
+                        usersTab.classList.remove('hidden');
+                    } else {
+                        usersTab.classList.add('hidden');
+                    }
+                } else {
+                    adminNavLink.classList.add('hidden');
+                }
+            } else {
+                loginBtn.classList.remove('hidden');
+                userDisplay.classList.add('hidden');
+                adminNavLink.classList.add('hidden');
+            }
+        }
+
+        // Show page
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             
-            // Update navigation
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            event.target.classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`[data-page="${pageId}"]`);
+            if (activeLink) activeLink.classList.add('active');
             
-            // Scroll to top
             window.scrollTo(0, 0);
         }
 
-        // Search functionality
-        function searchArticles() {
-            const searchTerm = event.target.value.toLowerCase();
-            const articles = document.querySelectorAll('#articlesGrid .article-card');
+        // Render home page
+        function renderHomePage() {
+            const featured = allArticles.find(a => a.featured) || allArticles[0];
             
-            articles.forEach(article => {
-                const title = article.querySelector('.article-title').textContent.toLowerCase();
-                const excerpt = article.querySelector('.article-excerpt').textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
-                    article.style.display = 'block';
-                } else {
-                    article.style.display = 'none';
-                }
-            });
+            if (featured) {
+                document.getElementById('heroTitle').textContent = featured.title;
+                document.getElementById('heroExcerpt').textContent = featured.excerpt;
+                document.getElementById('heroAuthor').textContent = `👤 By ${featured.authorName}`;
+                document.getElementById('heroDate').textContent = `📅 ${formatDate(featured.date)}`;
+            }
+
+            const grid = document.getElementById('homeArticlesGrid');
+            const latestArticles = allArticles.slice(0, 3);
+            
+            if (latestArticles.length === 0) {
+                grid.innerHTML = '<div class="loading">No articles yet. Login as admin or writer to add articles!</div>';
+                return;
+            }
+
+            grid.innerHTML = latestArticles.map(article => createArticleCard(article)).join('');
+            attachArticleCardListeners();
         }
 
-        // Filter functionality
-        function filterArticles(category) {
-            const articles = document.querySelectorAll('#articlesGrid .article-card');
-            
-            // Update active filter
-            document.querySelectorAll('.category-filter').forEach(filter => {
-                filter.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Filter articles
-            articles.forEach(article => {
-                if (category === 'all' || article.dataset.category === category) {
-                    article.style.display = 'block';
-                } else {
-                    article.style.display = 'none';
-                }
-            });
+        // Render articles page
+        function renderArticlesPage() {
+            let filtered = allArticles;
+
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(a => a.category === currentFilter);
+            }
+
+            if (currentSearch) {
+                filtered = filtered.filter(a => 
+                    a.title.toLowerCase().includes(currentSearch) ||
+                    a.excerpt.toLowerCase().includes(currentSearch) ||
+                    a.content.toLowerCase().includes(currentSearch)
+                );
+            }
+
+            document.getElementById('articleCount').textContent = `Showing ${filtered.length} article${filtered.length !== 1 ? 's' : ''}`;
+
+            const grid = document.getElementById('articlesGrid');
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="loading">No articles found.</div>';
+                return;
+            }
+
+            grid.innerHTML = filtered.map(article => createArticleCard(article)).join('');
+            attachArticleCardListeners();
         }
 
-        // Add some interactive effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add click handlers for navigation
-            document.querySelectorAll('.nav a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
+        // Create article card HTML
+        function createArticleCard(article) {
+            const icon = getCategoryIcon(article.category);
+            return `
+                <div class="article-card" data-article-id="${article.id}">
+                    <div class="article-image">${icon}</div>
+                    <div class="article-content">
+                        <span class="article-category">${article.category}</span>
+                        <h3 class="article-title">${article.title}</h3>
+                        <p class="article-excerpt">${article.excerpt}</p>
+                        <div class="article-meta">
+                            <span>By ${article.authorName}</span>
+                            <span>${formatDate(article.date)}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Attach click listeners to article cards
+        function attachArticleCardListeners() {
+            document.querySelectorAll('.article-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const articleId = card.dataset.articleId;
+                    const article = allArticles.find(a => a.id === articleId);
+                    if (article) {
+                        openArticleModal(article);
+                    }
                 });
             });
-        });
+        }
+
+        // Get category icon
+        function getCategoryIcon(category) {
+            const icons = {
+                news: '📰',
+                sports: '🏀',
+                arts: '🎭',
+                academics: '📚',
+                opinion: '💭'
+            };
+            return icons[category] || '📰';
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        // Render admin page
+        function renderAdminPage() {
+            if (!currentUserData) return;
+
+            const welcomeText = document.getElementById('adminWelcome');
+            welcomeText.textContent = currentUserData.role === 'admin' 
+                ? 'Full admin access - Manage all articles and users' 
+                : 'Writer access - Create and manage your own articles';
+
+            renderArticleList();
+            
+            if (currentUserData.role === 'admin') {
+                renderUserList();
+            }
+        }
+
+        // Render article list
+        function renderArticleList() {
+            const list = document.getElementById('articleList');
+            
+            let articlesToShow = allArticles;
+            
+            if (currentUserData.role === 'writer') {
+                articlesToShow = allArticles.filter(a => a.authorUid === currentUser.uid);
+            }
+            
+            if (articlesToShow.length === 0) {
+                list.innerHTML = '<div class="loading">No articles published yet.</div>';
+                return;
+            }
+
+            list.innerHTML = articlesToShow.map(article => {
+                const canEdit = currentUserData.role === 'admin' || article.authorUid === currentUser.uid;
+                
+                return `
+                    <div class="article-list-item">
+                        <div class="article-list-info">
+                            <h4>${article.title} ${article.featured ? '<span style="color: #dc2626;">★</span>' : ''}</h4>
+                            <p>${article.category} • ${article.authorName} • ${formatDate(article.date)}</p>
+                        </div>
+                        <div class="article-actions">
+                            ${canEdit ? `<button class="btn btn-danger" onclick="window.deleteArticle('${article.id}')">Delete</button>` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Render user list
+        function renderUserList() {
+            const list = document.getElementById('userList');
+            
+            if (allUsers.length === 0) {
+                list.innerHTML = '<div class="loading">No users found. Create users in Firebase Console.</div>';
+                return;
+            }
+
+            list.innerHTML = allUsers.map(user => `
+                <div class="user-list-item">
+                    <div class="user-list-info">
+                        <h4>${user.fullName} ${user.uid === currentUser.uid ? '(You)' : ''}</h4>
+                        <p>${user.email} • ${user.role}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Handle article submission
+        async function handleArticleSubmit(e) {
+            e.preventDefault();
+
+            if (!currentUser || !currentUserData || (currentUserData.role !== 'admin' && currentUserData.role !== 'writer')) {
+                alert('You do not have permission to create articles');
+                return;
+            }
+
+            const article = {
+                title: document.getElementById('articleTitle').value,
+                category: document.getElementById('articleCategory').value,
+                authorUid: currentUser.uid,
+                authorName: currentUserData.fullName,
+                date: new Date().toISOString().split('T')[0],
+                excerpt: document.getElementById('articleExcerpt').value,
+                content: document.getElementById('articleContent').value,
+                featured: document.getElementById('articleFeatured').checked,
+                timestamp: new Date()
+            };
+
+            try {
+                // If marking as featured, unfeature other articles
+                if (article.featured) {
+                    for (const existingArticle of allArticles) {
+                        if (existingArticle.featured) {
+                            await updateDoc(doc(db, 'articles', existingArticle.id), { featured: false });
+                        }
+                    }
+                }
+
+                await addDoc(collection(db, 'articles'), article);
+                
+                document.getElementById('articleForm').reset();
+                document.getElementById('pdfUpload').value = '';
+                document.getElementById('pdfStatus').textContent = '';
+                
+                await loadArticles();
+                renderHomePage();
+                renderArticlesPage();
+                renderArticleList();
+                
+                alert('Article published successfully!');
+            } catch (error) {
+                console.error('Error saving article:', error);
+                alert('Error publishing article. Please try again.');
+            }
+        }
+
+        // Delete article
+        window.deleteArticle = async function(articleId) {
+            if (!confirm('Are you sure you want to delete this article?')) {
+                return;
+            }
+
+            const article = allArticles.find(a => a.id === articleId);
+            
+            if (currentUserData.role !== 'admin' && article.authorUid !== currentUser.uid) {
+                alert('You can only delete your own articles');
+                return;
+            }
+
+            try {
+                await deleteDoc(doc(db, 'articles', articleId));
+                await loadArticles();
+                renderHomePage();
+                renderArticlesPage();
+                renderArticleList();
+                alert('Article deleted successfully!');
+            } catch (error) {
+                console.error('Error deleting article:', error);
+                alert('Error deleting article. Please try again.');
+            }
+        };
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
