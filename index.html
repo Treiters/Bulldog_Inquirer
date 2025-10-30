@@ -420,6 +420,120 @@
             line-height: 1.5;
         }
 
+        /* Archives Styles */
+        .breadcrumb {
+            background: #f9fafb;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .breadcrumb-item {
+            cursor: pointer;
+            color: #2563eb;
+            transition: all 0.2s;
+        }
+
+        .breadcrumb-item:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-item.current {
+            color: #374151;
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .breadcrumb-item.current:hover {
+            text-decoration: none;
+        }
+
+        .file-browser {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            overflow: hidden;
+        }
+
+        .file-item {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .file-item:last-child {
+            border-bottom: none;
+        }
+
+        .file-item:hover {
+            background: #f9fafb;
+        }
+
+        .file-icon {
+            width: 48px;
+            height: 48px;
+            background: #eff6ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .file-icon.folder {
+            background: #fef3c7;
+        }
+
+        .file-icon.document {
+            background: #dbeafe;
+        }
+
+        .file-icon.pdf {
+            background: #fee2e2;
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 0.25rem;
+        }
+
+        .file-meta {
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .download-btn {
+            padding: 0.5rem 1rem;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+        }
+
+        .download-btn:hover {
+            background: #1e40af;
+            transform: translateY(-1px);
+        }
+
         /* Login Section */
         .login-container {
             max-width: 400px;
@@ -550,6 +664,15 @@
             background: #d97706;
         }
 
+        .btn-success {
+            background: #059669;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #047857;
+        }
+
         .article-list {
             margin-top: 2rem;
         }
@@ -623,6 +746,12 @@
             background: #fee2e2;
             color: #991b1b;
             border: 1px solid #fca5a5;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #6ee7b7;
         }
 
         .pdf-upload-section {
@@ -962,6 +1091,7 @@
             <nav class="nav">
                 <a class="nav-link active" data-page="home">🏠 Home</a>
                 <a class="nav-link" data-page="articles">📰 Articles</a>
+                <a class="nav-link" data-page="archives">📁 Archives</a>
                 <a class="nav-link" data-page="about">👥 About Us</a>
                 <a class="nav-link hidden" id="adminNavLink" data-page="admin">⚙️ Admin</a>
             </nav>
@@ -1036,6 +1166,24 @@
         </div>
     </div>
 
+    <!-- Archives Page -->
+    <div id="archives" class="page">
+        <div class="main-content">
+            <div class="articles-header">
+                <h2>📁 Archives</h2>
+                <p>Browse our collection of past articles and interviews</p>
+            </div>
+
+            <div class="breadcrumb" id="archiveBreadcrumb">
+                <span class="breadcrumb-item current">Old Articles</span>
+            </div>
+
+            <div class="file-browser" id="archiveBrowser">
+                <div class="loading">Loading archives...</div>
+            </div>
+        </div>
+    </div>
+
     <!-- About Page -->
     <div id="about" class="page">
         <div class="main-content">
@@ -1106,6 +1254,7 @@
             <div class="tabs">
                 <div class="tab active" data-tab="articles">📰 Articles</div>
                 <div class="tab hidden" id="usersTab" data-tab="users">👥 Users</div>
+                <div class="tab hidden" id="archivesTab" data-tab="archives-admin">📁 Index Archives</div>
             </div>
 
             <!-- Articles Tab -->
@@ -1185,6 +1334,34 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Archives Admin Tab -->
+            <div id="archivesAdminTabContent" class="tab-content hidden">
+                <div class="alert alert-warning">
+                    <strong>⚠️ One-Time Setup Tool</strong><br>
+                    This tool is for initial setup only. First, upload your "old-articles" folder to Firebase Storage, then click the button below to scan and index the files.
+                </div>
+
+                <div class="admin-panel">
+                    <h3 style="margin-bottom: 1.5rem;">Index Archive Files</h3>
+                    <p style="margin-bottom: 1.5rem; color: #666;">
+                        <strong>Instructions:</strong><br>
+                        1. Go to Firebase Console → Storage<br>
+                        2. Upload your entire "old-articles" folder with structure: old-articles/Year 1/Issue 1/...<br>
+                        3. Click the button below to scan and index all files<br>
+                        4. This only needs to be done once
+                    </p>
+                    
+                    <button id="scanArchivesBtn" class="btn btn-success">🔍 Scan and Index Archives</button>
+                    
+                    <div id="scanStatus" style="margin-top: 1.5rem;"></div>
+                    
+                    <div id="scanResults" class="hidden" style="margin-top: 2rem;">
+                        <h4 style="margin-bottom: 1rem;">Indexed Files:</h4>
+                        <div id="scanResultsList" style="max-height: 400px; overflow-y: auto; background: #f9fafb; padding: 1rem; border-radius: 8px;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1244,7 +1421,8 @@
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
         import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, where, updateDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, where, updateDoc, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        import { getStorage, ref, listAll, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js';
 
         // Firebase Configuration
         const firebaseConfig = {
@@ -1258,11 +1436,13 @@
         };
 
         // Initialize Firebase
-        let app, auth, db;
+        let app, auth, db, storage;
         let currentUser = null;
         let currentUserData = null;
         let allArticles = [];
         let allUsers = [];
+        let archiveIndex = null;
+        let currentArchivePath = [];
         let currentFilter = 'all';
         let currentSearch = '';
 
@@ -1270,6 +1450,7 @@
             app = initializeApp(firebaseConfig);
             auth = getAuth(app);
             db = getFirestore(app);
+            storage = getStorage(app);
             console.log('Firebase initialized successfully');
         } catch (error) {
             console.error('Firebase initialization error:', error);
@@ -1280,6 +1461,7 @@
         function init() {
             setupEventListeners();
             setupAuthListener();
+            loadArchiveIndex();
         }
 
         // Setup authentication listener
@@ -1356,6 +1538,265 @@
             }
         }
 
+        // Load archive index from Firestore
+        async function loadArchiveIndex() {
+            try {
+                const archiveDoc = await getDocs(collection(db, 'archive-index'));
+                if (!archiveDoc.empty) {
+                    archiveIndex = archiveDoc.docs[0].data().structure;
+                    renderArchivesPage();
+                } else {
+                    archiveIndex = null;
+                    renderArchivesPage();
+                }
+            } catch (error) {
+                console.error('Error loading archive index:', error);
+                archiveIndex = null;
+                renderArchivesPage();
+            }
+        }
+
+        // Scan Firebase Storage for archive files
+        async function scanArchives() {
+            const statusDiv = document.getElementById('scanStatus');
+            const resultsDiv = document.getElementById('scanResults');
+            const resultsListDiv = document.getElementById('scanResultsList');
+            const scanBtn = document.getElementById('scanArchivesBtn');
+            
+            statusDiv.innerHTML = '<div class="alert alert-info">⏳ Scanning Firebase Storage for archive files...</div>';
+            scanBtn.disabled = true;
+            resultsDiv.classList.add('hidden');
+            
+            try {
+                const archiveRef = ref(storage, 'old-articles');
+                const structure = await scanDirectory(archiveRef, '');
+                
+                // Save to Firestore
+                const archiveIndexRef = collection(db, 'archive-index');
+                const snapshot = await getDocs(archiveIndexRef);
+                
+                if (!snapshot.empty) {
+                    // Update existing
+                    await updateDoc(doc(db, 'archive-index', snapshot.docs[0].id), {
+                        structure: structure,
+                        lastUpdated: new Date().toISOString()
+                    });
+                } else {
+                    // Create new
+                    await addDoc(archiveIndexRef, {
+                        structure: structure,
+                        lastUpdated: new Date().toISOString()
+                    });
+                }
+                
+                archiveIndex = structure;
+                
+                // Count files
+                const fileCount = countFiles(structure);
+                
+                statusDiv.innerHTML = `<div class="alert alert-success">✅ Successfully indexed ${fileCount} files!</div>`;
+                resultsDiv.classList.remove('hidden');
+                resultsListDiv.innerHTML = renderStructureTree(structure);
+                
+                renderArchivesPage();
+                
+            } catch (error) {
+                console.error('Error scanning archives:', error);
+                statusDiv.innerHTML = `<div class="alert alert-danger">❌ Error: ${error.message}<br><br>Make sure you've uploaded the "old-articles" folder to Firebase Storage first.</div>`;
+            } finally {
+                scanBtn.disabled = false;
+            }
+        }
+
+        // Recursively scan directory
+        async function scanDirectory(dirRef, path) {
+            const result = {
+                type: 'folder',
+                name: dirRef.name || 'old-articles',
+                path: path,
+                children: []
+            };
+            
+            try {
+                const listResult = await listAll(dirRef);
+                
+                // Add subdirectories
+                for (const folderRef of listResult.prefixes) {
+                    const subPath = path ? `${path}/${folderRef.name}` : folderRef.name;
+                    const subDir = await scanDirectory(folderRef, subPath);
+                    result.children.push(subDir);
+                }
+                
+                // Add files
+                for (const itemRef of listResult.items) {
+                    const filePath = path ? `${path}/${itemRef.name}` : itemRef.name;
+                    const downloadURL = await getDownloadURL(itemRef);
+                    result.children.push({
+                        type: 'file',
+                        name: itemRef.name,
+                        path: filePath,
+                        fullPath: itemRef.fullPath,
+                        downloadURL: downloadURL
+                    });
+                }
+                
+            } catch (error) {
+                console.error(`Error scanning directory ${path}:`, error);
+            }
+            
+            return result;
+        }
+
+        // Count total files in structure
+        function countFiles(node) {
+            if (node.type === 'file') return 1;
+            let count = 0;
+            if (node.children) {
+                for (const child of node.children) {
+                    count += countFiles(child);
+                }
+            }
+            return count;
+        }
+
+        // Render structure as tree for display
+        function renderStructureTree(node, indent = 0) {
+            let html = '';
+            const prefix = '&nbsp;'.repeat(indent * 4);
+            const icon = node.type === 'folder' ? '📁' : (node.name.endsWith('.pdf') ? '📕' : '📄');
+            html += `<div style="margin-bottom: 0.25rem;">${prefix}${icon} ${node.name}</div>`;
+            
+            if (node.children) {
+                for (const child of node.children) {
+                    html += renderStructureTree(child, indent + 1);
+                }
+            }
+            
+            return html;
+        }
+
+        // Render archives page
+        function renderArchivesPage() {
+            const browserDiv = document.getElementById('archiveBrowser');
+            
+            if (!archiveIndex) {
+                browserDiv.innerHTML = `
+                    <div class="loading">
+                        <p>No archives indexed yet.</p>
+                        <p style="margin-top: 1rem; color: #666;">Admin users can index archives from the Admin panel.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Navigate to current path
+            let currentNode = archiveIndex;
+            for (const pathPart of currentArchivePath) {
+                currentNode = currentNode.children.find(c => c.name === pathPart);
+                if (!currentNode) {
+                    currentArchivePath = [];
+                    currentNode = archiveIndex;
+                    break;
+                }
+            }
+            
+            // Render breadcrumb
+            renderArchiveBreadcrumb();
+            
+            // Render current directory
+            if (!currentNode.children || currentNode.children.length === 0) {
+                browserDiv.innerHTML = '<div class="loading">This folder is empty.</div>';
+                return;
+            }
+            
+            browserDiv.innerHTML = currentNode.children.map(item => {
+                if (item.type === 'folder') {
+                    return `
+                        <div class="file-item" data-type="folder" data-name="${item.name}">
+                            <div class="file-icon folder">📁</div>
+                            <div class="file-info">
+                                <div class="file-name">${item.name}</div>
+                                <div class="file-meta">Folder</div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    const isDocx = item.name.endsWith('.docx') || item.name.endsWith('.doc');
+                    const isPdf = item.name.endsWith('.pdf');
+                    const icon = isPdf ? '📕' : '📄';
+                    const iconClass = isPdf ? 'pdf' : 'document';
+                    
+                    return `
+                        <div class="file-item" data-type="file">
+                            <div class="file-icon ${iconClass}">${icon}</div>
+                            <div class="file-info">
+                                <div class="file-name">${item.name}</div>
+                                <div class="file-meta">${isPdf ? 'PDF Document' : 'Word Document'}</div>
+                            </div>
+                            <button class="download-btn" data-url="${item.downloadURL}" data-name="${item.name}">
+                                Download
+                            </button>
+                        </div>
+                    `;
+                }
+            }).join('');
+            
+            // Attach event listeners
+            document.querySelectorAll('.file-item[data-type="folder"]').forEach(folder => {
+                folder.addEventListener('click', () => {
+                    currentArchivePath.push(folder.dataset.name);
+                    renderArchivesPage();
+                });
+            });
+            
+            document.querySelectorAll('.download-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const url = btn.dataset.url;
+                    const name = btn.dataset.name;
+                    downloadFile(url, name);
+                });
+            });
+        }
+
+        // Render archive breadcrumb
+        function renderArchiveBreadcrumb() {
+            const breadcrumbDiv = document.getElementById('archiveBreadcrumb');
+            let html = '<span class="breadcrumb-item" data-index="-1">Old Articles</span>';
+            
+            for (let i = 0; i < currentArchivePath.length; i++) {
+                html += ` <span>›</span> <span class="breadcrumb-item ${i === currentArchivePath.length - 1 ? 'current' : ''}" data-index="${i}">${currentArchivePath[i]}</span>`;
+            }
+            
+            breadcrumbDiv.innerHTML = html;
+            
+            // Attach click listeners
+            document.querySelectorAll('.breadcrumb-item').forEach(item => {
+                if (!item.classList.contains('current')) {
+                    item.addEventListener('click', () => {
+                        const index = parseInt(item.dataset.index);
+                        if (index === -1) {
+                            currentArchivePath = [];
+                        } else {
+                            currentArchivePath = currentArchivePath.slice(0, index + 1);
+                        }
+                        renderArchivesPage();
+                    });
+                }
+            });
+        }
+
+        // Download file
+        function downloadFile(url, filename) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
         // Setup event listeners
         function setupEventListeners() {
             // Navigation
@@ -1371,6 +1812,11 @@
                     
                     if (page === 'admin') {
                         renderAdminPage();
+                    }
+                    
+                    if (page === 'archives') {
+                        currentArchivePath = [];
+                        renderArchivesPage();
                     }
                     
                     showPage(page);
@@ -1421,6 +1867,9 @@
             // PDF Upload
             document.getElementById('extractPdfBtn').addEventListener('click', handlePdfExtraction);
 
+            // Scan Archives Button
+            document.getElementById('scanArchivesBtn').addEventListener('click', scanArchives);
+
             // Tabs
             document.querySelectorAll('.tab').forEach(tab => {
                 tab.addEventListener('click', () => {
@@ -1436,6 +1885,8 @@
                         document.getElementById('articlesTab').classList.remove('hidden');
                     } else if (tabName === 'users') {
                         document.getElementById('usersTabContent').classList.remove('hidden');
+                    } else if (tabName === 'archives-admin') {
+                        document.getElementById('archivesAdminTabContent').classList.remove('hidden');
                     }
                 });
             });
@@ -1576,6 +2027,7 @@
             const userBadge = document.getElementById('userBadge');
             const adminNavLink = document.getElementById('adminNavLink');
             const usersTab = document.getElementById('usersTab');
+            const archivesTab = document.getElementById('archivesTab');
 
             if (currentUser && currentUserData) {
                 loginBtn.classList.add('hidden');
@@ -1590,8 +2042,10 @@
                     
                     if (currentUserData.role === 'admin') {
                         usersTab.classList.remove('hidden');
+                        archivesTab.classList.remove('hidden');
                     } else {
                         usersTab.classList.add('hidden');
+                        archivesTab.classList.add('hidden');
                     }
                 } else {
                     adminNavLink.classList.add('hidden');
