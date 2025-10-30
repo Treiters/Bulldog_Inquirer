@@ -1,0 +1,945 @@
+{
+  "name": "old-articles",
+  "type": "folder",
+  "children": [
+    {
+      "name": "Year 1",
+      "type": "folder",
+      "children": [
+        {
+          "name": "Issue 1",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Alma Art",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Newspaper article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Alma Art/Newspaper article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Culture",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Why is modern Lima built like a fortress.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Culture/Why is modern Lima built like a fortress.docx"
+                }
+              ]
+            },
+            {
+              "name": "Entertainment",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Copy of Entertainment_Issue 1_2021 BISB Newspaper.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Entertainment/Copy of Entertainment_Issue 1_2021 BISB Newspaper.docx"
+                },
+                {
+                  "name": "Entertainment_Issue 1_2021 BISB Newspaper.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Entertainment/Entertainment_Issue 1_2021 BISB Newspaper.docx"
+                }
+              ]
+            },
+            {
+              "name": "Having Fun During COVID",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Having Fun While Staying Safe in Covid.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Having Fun During COVID/Having Fun While Staying Safe in Covid.docx"
+                }
+              ]
+            },
+            {
+              "name": "Model UN",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Model UN Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Model UN/Model UN Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mr. Nicholas COVID Feature",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Nicholas COVID Feature.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Mr. Nicholas COVID Feature/Mr. Nicholas COVID Feature.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mr. Smith COVID Feature",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Harry - Mr. Smith interview - edited copy.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Mr. Smith COVID Feature/Harry - Mr. Smith interview - edited copy.docx"
+                },
+                {
+                  "name": "Mr Smith Newspaper write up.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Mr. Smith COVID Feature/Mr Smith Newspaper write up.docx"
+                }
+              ]
+            },
+            {
+              "name": "Ms. Hernandez COVID Feature",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Ms. Hernandez Covid.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Ms. Hernandez COVID Feature/Ms. Hernandez Covid.docx"
+                },
+                {
+                  "name": "The Tanzania project is making headway in spite limitations due to the Coronavirus-3.pdf",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Ms. Hernandez COVID Feature/The Tanzania project is making headway in spite limitations due to the Coronavirus-3.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Ms. Hernandez Mental Health",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Covid Pe.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Ms. Hernandez Mental Health/Covid Pe.docx"
+                },
+                {
+                  "name": "Covid and Mental Health.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Ms. Hernandez Mental Health/Covid and Mental Health.docx"
+                },
+                {
+                  "name": "Covid on the Mental Health of Students.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Ms. Hernandez Mental Health/Covid on the Mental Health of Students.docx"
+                }
+              ]
+            },
+            {
+              "name": "Recipes",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Recipes.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Recipes/Recipes.docx"
+                }
+              ]
+            },
+            {
+              "name": "STEAM Mr. Higgins",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Steam center.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/STEAM Mr. Higgins/Steam center.docx"
+                }
+              ]
+            },
+            {
+              "name": "Tanzania",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr Smith Newspaper write up.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Tanzania/Mr Smith Newspaper write up.docx"
+                },
+                {
+                  "name": "Tanzania First Issue.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 1/Tanzania/Tanzania First Issue.docx"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Issue 2",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Allies for Action Feature",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "AfA article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/Allies for Action Feature/AfA article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Anna Sorkin",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Anna_s Gambit.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/Anna Sorkin/Anna_s Gambit.docx"
+                }
+              ]
+            },
+            {
+              "name": "Article from BISB-PA",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "BISB-PA Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/Article from BISB-PA/BISB-PA Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "BISB PA Elections",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "BISB-PA Elections_.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/BISB PA Elections/BISB-PA Elections_.docx"
+                }
+              ]
+            },
+            {
+              "name": "Blue Light",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Everything you need to know about Blue Light.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/Blue Light/Everything you need to know about Blue Light.docx"
+                }
+              ]
+            },
+            {
+              "name": "College Process (Ms. Boucher)",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "College admission process article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/College Process (Ms. Boucher)/College admission process article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Entertainment",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "What film is going to win Best Picture at the Oscars.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/Entertainment/What film is going to win Best Picture at the Oscars.docx"
+                }
+              ]
+            },
+            {
+              "name": "Fast Fashion",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Fast Fashion Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/Fast Fashion/Fast Fashion Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "High School Quiz Show",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "High School Quiz Show_.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/High School Quiz Show/High School Quiz Show_.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mental Health and Bullying",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Bullying Interview.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/Mental Health and Bullying/Bullying Interview.docx"
+                },
+                {
+                  "name": "The Effects of Bullying on Mental Health.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/Mental Health and Bullying/The Effects of Bullying on Mental Health.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mr Johnson Feature",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Johnson Feature.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/Mr Johnson Feature/Mr. Johnson Feature.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mr. Merrick Feature",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Merrick Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/Mr. Merrick Feature/Mr. Merrick Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "New Principal Feature",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Thornhill Aricle (Q and A).docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/New Principal Feature/Mr. Thornhill Aricle (Q and A).docx"
+                }
+              ]
+            },
+            {
+              "name": "Recipes",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Recipes.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 2/Recipes/Recipes.docx"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Issue 3",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Civil Rights Hero_ Everett Dirksen",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Forgotten Civil Rights  Hero_ Everett Dirksen.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 3/Civil Rights Hero_ Everett Dirksen/Forgotten Civil Rights  Hero_ Everett Dirksen.docx"
+                }
+              ]
+            },
+            {
+              "name": "Coping Mechanisms",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Healthy Coping Mechanisms.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 3/Coping Mechanisms/Healthy Coping Mechanisms.docx"
+                }
+              ]
+            },
+            {
+              "name": "Electives",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "BISB Electives.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 3/Electives/BISB Electives.docx"
+                }
+              ]
+            },
+            {
+              "name": "Impact of COVID-19 on Performing Arts",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Performing Arts.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 3/Impact of COVID-19 on Performing Arts/Performing Arts.docx"
+                }
+              ]
+            },
+            {
+              "name": "Ms Northey COVID response feature",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Ms Northey COVID feature 2021.pdf",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 3/Ms Northey COVID response feature/Ms Northey COVID feature 2021.pdf"
+                }
+              ]
+            },
+            {
+              "name": "New Deputy Head Feature",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Gilhooly Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 3/New Deputy Head Feature/Mr. Gilhooly Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "School sports in a pandemic",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "School sports in a pandemic (Edited).docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 3/School sports in a pandemic/School sports in a pandemic (Edited).docx"
+                },
+                {
+                  "name": "School sports in a pandemic.pdf",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 3/School sports in a pandemic/School sports in a pandemic.pdf"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Issue 4",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Duke of Edinburgh",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Students anticipate the Duke of Edinburgh Award_s Adventurous Journey.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Duke of Edinburgh/Students anticipate the Duke of Edinburgh Award_s Adventurous Journey.docx"
+                },
+                {
+                  "name": "Students anticipate the Duke of Edinburgh Award_s Adventurous Journey.pdf",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Duke of Edinburgh/Students anticipate the Duke of Edinburgh Award_s Adventurous Journey.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Gymnastics_ Madden Shelley",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "madden gymnastics.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Gymnastics_ Madden Shelley/madden gymnastics.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mr. Hatch",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Hatch.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Mr. Hatch/Mr. Hatch.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mr. Nicholas Article",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Nicholas Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Mr. Nicholas Article/Mr. Nicholas Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mr. Wickenden",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Wickenden Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Mr. Wickenden/Mr. Wickenden Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Ms. Anderson-Shore",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Interview Questions.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Ms. Anderson-Shore/Interview Questions.docx"
+                },
+                {
+                  "name": "Ms. Anderson-Shroe Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Ms. Anderson-Shore/Ms. Anderson-Shroe Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Ms. Moustakim",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Ms Moustakim article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Ms. Moustakim/Ms Moustakim article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Ms. Northey",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Interview for Erin Pomfret.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Ms. Northey/Interview for Erin Pomfret.docx"
+                }
+              ]
+            },
+            {
+              "name": "Online Learner_ Aria",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Blended Learner article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Online Learner_ Aria/Blended Learner article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Recipes",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Recipes Issue 4.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Recipes/Recipes Issue 4.docx"
+                }
+              ]
+            },
+            {
+              "name": "Seniors-Catalina",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Class of 2021.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Seniors-Catalina/Class of 2021.docx"
+                }
+              ]
+            },
+            {
+              "name": "Water Infrastructure",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Crumbling Water Infrastucture.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 1/Issue 4/Water Infrastructure/Crumbling Water Infrastucture.docx"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Year 2",
+      "type": "folder",
+      "children": [
+        {
+          "name": "Issue 5",
+          "type": "folder",
+          "children": [
+            {
+              "name": "How the Brain Works to Study",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "How the brain works to study.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 5/How the Brain Works to Study/How the brain works to study.docx"
+                }
+              ]
+            },
+            {
+              "name": "Investing Club",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "investing club.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 5/Investing Club/investing club.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mandating Vaccines",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mandating Vaccines.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 5/Mandating Vaccines/Mandating Vaccines.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mr. Lenfest",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Lenfest Feature.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 5/Mr. Lenfest/Mr. Lenfest Feature.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mr. Mclean",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Mclean Feature.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 5/Mr. Mclean/Mr. Mclean Feature.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mr. Pringle",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "New Director of Learning Support at BISB (1).docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 5/Mr. Pringle/New Director of Learning Support at BISB (1).docx"
+                }
+              ]
+            },
+            {
+              "name": "Ms. Reilly New DOSW",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Ms. Reilly New DOSW.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 5/Ms. Reilly New DOSW/Ms. Reilly New DOSW.docx"
+                }
+              ]
+            },
+            {
+              "name": "Recipes",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Recipes Issue 5.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 5/Recipes/Recipes Issue 5.docx"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Issue 6",
+          "type": "folder",
+          "children": [
+            {
+              "name": "AAPI Article",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "AAPI Hate Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 6/AAPI Article/AAPI Hate Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Diwali Article",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Diwali Article_.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 6/Diwali Article/Diwali Article_.docx"
+                }
+              ]
+            },
+            {
+              "name": "Heard Student Article",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Head Boy and Head Girl Article Bulldog Inquirer.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 6/Heard Student Article/Head Boy and Head Girl Article Bulldog Inquirer.docx"
+                }
+              ]
+            },
+            {
+              "name": "House System",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "House Captain Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 6/House System/House Captain Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Middle school science club",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Middle school science club sparks passion for learning.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 6/Middle school science club/Middle school science club sparks passion for learning.docx"
+                }
+              ]
+            },
+            {
+              "name": "Mr. Thornhill Article",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Thornhill Article 2.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 6/Mr. Thornhill Article/Mr. Thornhill Article 2.docx"
+                }
+              ]
+            },
+            {
+              "name": "New Dance Teacher",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Dance Teacher Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 6/New Dance Teacher/Dance Teacher Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Spirit Week",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Spirit Week Article.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 6/Spirit Week/Spirit Week Article.docx"
+                }
+              ]
+            },
+            {
+              "name": "Technology in Schools",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Issues with Technology in Schools.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 6/Technology in Schools/Issues with Technology in Schools.docx"
+                }
+              ]
+            },
+            {
+              "name": "Photography Club Article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 6/Photography Club Article.docx"
+            },
+            {
+              "name": "Recipes Issue 6.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 6/Recipes Issue 6.docx"
+            }
+          ]
+        },
+        {
+          "name": "Issue 7",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Mr. Quarrington Article",
+              "type": "folder",
+              "children": [
+                {
+                  "name": "Mr. Quarrington feature-3.pdf",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 7/Mr. Quarrington Article/Mr. Quarrington feature-3.pdf"
+                },
+                {
+                  "name": "Mr. Quarrington feature.docx",
+                  "type": "file",
+                  "path": "old-articles/Year 2/Issue 7/Mr. Quarrington Article/Mr. Quarrington feature.docx"
+                }
+              ]
+            },
+            {
+              "name": "BISB New Changes Article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 7/BISB New Changes Article.docx"
+            },
+            {
+              "name": "BISB vs Dexter Article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 7/BISB vs Dexter Article.docx"
+            },
+            {
+              "name": "BISB vs ISB Game.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 7/BISB vs ISB Game.docx"
+            },
+            {
+              "name": "COVID and Education Article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 7/COVID and Education Article.docx"
+            },
+            {
+              "name": "Community Service Article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 7/Community Service Article.docx"
+            },
+            {
+              "name": "Early Decision Article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 7/Early Decision Article.docx"
+            },
+            {
+              "name": "Language Ambassador Program.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 7/Language Ambassador Program.docx"
+            },
+            {
+              "name": "Lunar New Year Article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 7/Lunar New Year Article.docx"
+            },
+            {
+              "name": "Mr. Gilhooly Article 2.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 7/Mr. Gilhooly Article 2.docx"
+            },
+            {
+              "name": "SAT Optional Article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 7/SAT Optional Article.docx"
+            }
+          ]
+        },
+        {
+          "name": "Issue 8",
+          "type": "folder",
+          "children": [
+            {
+              "name": "BISB MG20 article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 8/BISB MG20 article.docx"
+            },
+            {
+              "name": "Black Historical Influencers Article_.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 8/Black Historical Influencers Article_.docx"
+            },
+            {
+              "name": "Critical Race Theory Article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 8/Critical Race Theory Article.docx"
+            },
+            {
+              "name": "DEI Article_.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 8/DEI Article_.docx"
+            },
+            {
+              "name": "Exams Impact on Mental Health.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 8/Exams Impact on Mental Health.docx"
+            },
+            {
+              "name": "HMun Article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 8/HMun Article.docx"
+            },
+            {
+              "name": "IGCSE exams article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 8/IGCSE exams article.docx"
+            },
+            {
+              "name": "Language quiz article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 8/Language quiz article.docx"
+            },
+            {
+              "name": "New Mask Policies.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 8/New Mask Policies.docx"
+            },
+            {
+              "name": "Support for Ukraine Article.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 8/Support for Ukraine Article.docx"
+            }
+          ]
+        },
+        {
+          "name": "Issue 9",
+          "type": "folder",
+          "children": [
+            {
+              "name": "Boston Public Schools at risk of State Takeover.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 9/Boston Public Schools at risk of State Takeover.docx"
+            },
+            {
+              "name": "Massachusetts ends School Testing.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 9/Massachusetts ends School Testing.docx"
+            },
+            {
+              "name": "Sports Banquet.docx",
+              "type": "file",
+              "path": "old-articles/Year 2/Issue 9/Sports Banquet.docx"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
