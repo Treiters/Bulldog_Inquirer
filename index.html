@@ -17,7 +17,6 @@
             color: #333;
         }
 
-        /* Header */
         .header {
             background: white;
             padding: 1rem 2rem;
@@ -70,9 +69,6 @@
             padding: 0.5rem 1rem;
             border-radius: 6px;
             transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
             cursor: pointer;
         }
 
@@ -93,9 +89,6 @@
             border-radius: 20px;
             font-size: 0.875rem;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .user-badge.admin {
@@ -103,47 +96,47 @@
             color: #92400e;
         }
 
-        .user-badge.writer {
-            background: #dbeafe;
-            color: #1e40af;
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
         }
 
-        .user-badge.member {
-            background: #f3f4f6;
-            color: #374151;
+        .btn-primary {
+            background: #2563eb;
+            color: white;
         }
 
-        /* Main Content */
+        .btn-primary:hover {
+            background: #1e40af;
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #dc2626;
+            color: white;
+        }
+
         .main-content {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #1e40af, #1e3a8a);
             color: white;
             padding: 4rem 2rem;
             margin-bottom: 3rem;
             border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
         }
 
         .featured-badge {
@@ -161,27 +154,12 @@
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            line-height: 1.1;
         }
 
         .hero p {
             font-size: 1.25rem;
             margin-bottom: 1.5rem;
             opacity: 0.9;
-        }
-
-        .hero-meta {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            margin-bottom: 2rem;
-            font-size: 0.875rem;
-        }
-
-        .hero-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .read-more {
@@ -192,95 +170,8 @@
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
         }
 
-        .read-more:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        /* Articles Section */
-        .articles-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .articles-header h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .articles-header p {
-            font-size: 1.125rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Search and Filter */
-        .search-filter {
-            margin-bottom: 3rem;
-        }
-
-        .search-box {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .search-input {
-            width: 100%;
-            max-width: 500px;
-            padding: 1rem 1.5rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 50px;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.2s;
-        }
-
-        .search-input:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .category-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .filter-label {
-            font-weight: 600;
-            color: #374151;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .category-filter {
-            padding: 0.5rem 1rem;
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 20px;
-            color: #374151;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .category-filter:hover, .category-filter.active {
-            background: #2563eb;
-            color: white;
-            border-color: #2563eb;
-        }
-
-        /* Articles Grid */
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -334,527 +225,52 @@
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
-            line-height: 1.3;
         }
 
         .article-excerpt {
             color: #666;
             margin-bottom: 1rem;
-            line-height: 1.5;
         }
 
         .article-meta {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             font-size: 0.875rem;
             color: #666;
         }
 
-        /* About Section */
-        .about-section {
-            background: #f9fafb;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-            border-radius: 12px;
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-        }
-
-        .about-content p {
-            font-size: 1.125rem;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 2rem;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .value-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e5e7eb;
-        }
-
-        .value-icon {
-            width: 60px;
-            height: 60px;
-            background: #eff6ff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-            color: #2563eb;
-        }
-
-        .value-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            text-align: center;
-        }
-
-        .value-card p {
-            color: #666;
-            text-align: center;
-            font-size: 0.875rem;
-            line-height: 1.5;
-        }
-
-        /* Archives Styles */
-        .breadcrumb {
-            background: #f9fafb;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        .breadcrumb-item {
-            cursor: pointer;
-            color: #2563eb;
-            transition: all 0.2s;
-        }
-
-        .breadcrumb-item:hover {
-            text-decoration: underline;
-        }
-
-        .breadcrumb-item.current {
-            color: #374151;
-            font-weight: 600;
-            cursor: default;
-        }
-
-        .breadcrumb-item.current:hover {
-            text-decoration: none;
-        }
-
-        .file-browser {
-            background: white;
-            border-radius: 12px;
-            border: 1px solid #e5e7eb;
-            overflow: hidden;
-        }
-
-        .file-item {
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid #e5e7eb;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .file-item:last-child {
-            border-bottom: none;
-        }
-
-        .file-item:hover {
-            background: #f9fafb;
-        }
-
-        .file-icon {
-            width: 48px;
-            height: 48px;
-            background: #eff6ff;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .file-icon.folder {
-            background: #fef3c7;
-        }
-
-        .file-icon.document {
-            background: #dbeafe;
-        }
-
-        .file-icon.pdf {
-            background: #fee2e2;
-        }
-
-        .file-info {
-            flex: 1;
-        }
-
-        .file-name {
-            font-weight: 600;
-            color: #111;
-            margin-bottom: 0.25rem;
-        }
-
-        .file-meta {
-            font-size: 0.875rem;
-            color: #666;
-        }
-
-        .download-btn {
-            padding: 0.5rem 1rem;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.875rem;
-        }
-
-        .download-btn:hover {
-            background: #1e40af;
-            transform: translateY(-1px);
-        }
-
-        /* Login Section */
-        .login-container {
-            max-width: 400px;
-            margin: 4rem auto;
-            padding: 2rem;
-        }
-
-        .login-panel {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e5e7eb;
-        }
-
-        .login-panel h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #111;
-        }
-
-        /* Admin Section */
-        .admin-panel {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e5e7eb;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #374151;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .search-input {
             width: 100%;
-            padding: 0.75rem;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
             border: 2px solid #e5e7eb;
-            border-radius: 8px;
+            border-radius: 50px;
             font-size: 1rem;
-            font-family: inherit;
-            outline: none;
-            transition: all 0.2s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            width: auto;
-            cursor: pointer;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: #2563eb;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #1e40af;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-secondary {
-            background: #6b7280;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #4b5563;
-        }
-
-        .btn-danger {
-            background: #dc2626;
-            color: white;
-            padding: 0.5rem 1rem;
-            font-size: 0.875rem;
-        }
-
-        .btn-danger:hover {
-            background: #b91c1c;
-        }
-
-        .article-list {
-            margin-top: 2rem;
-        }
-
-        .article-list-item {
-            background: #f9fafb;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid #e5e7eb;
-        }
-
-        .article-list-info h4 {
-            font-size: 1.125rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .article-list-info p {
-            font-size: 0.875rem;
-            color: #666;
-        }
-
-        .article-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .user-list-item {
-            background: #f9fafb;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid #e5e7eb;
-        }
-
-        .user-list-info h4 {
-            font-size: 1.125rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .user-list-info p {
-            font-size: 0.875rem;
-            color: #666;
-        }
-
-        .alert {
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-
-        .alert-info {
-            background: #dbeafe;
-            color: #1e40af;
-            border: 1px solid #93c5fd;
-        }
-
-        .alert-warning {
-            background: #fef3c7;
-            color: #92400e;
-            border: 1px solid #fcd34d;
-        }
-
-        .alert-danger {
-            background: #fee2e2;
-            color: #991b1b;
-            border: 1px solid #fca5a5;
-        }
-
-        .pdf-upload-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: #f3f4f6;
-            border-radius: 8px;
-            border: 2px dashed #9ca3af;
-        }
-
-        .pdf-upload-section h4 {
-            margin-bottom: 0.5rem;
-            color: #374151;
-        }
-
-        .pdf-upload-section p {
-            font-size: 0.875rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .pdf-upload-section input[type="file"] {
-            display: block;
-            margin-bottom: 0.75rem;
-            font-size: 0.875rem;
-        }
-
-        #pdfStatus {
-            margin-top: 0.75rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .divider {
-            text-align: center;
-            margin: 1.5rem 0;
-            color: #9ca3af;
-            font-weight: 600;
-            position: relative;
-        }
-
-        .divider::before,
-        .divider::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 40%;
-            height: 1px;
-            background: #e5e7eb;
-        }
-
-        .divider::before {
-            left: 0;
-        }
-
-        .divider::after {
-            right: 0;
-        }
-
-        /* Footer */
-        .footer {
-            background: #2563eb;
-            color: white;
-            padding: 3rem 2rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .footer h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .footer p {
-            font-size: 1.125rem;
-            opacity: 0.9;
             margin-bottom: 2rem;
         }
 
-        .contact-info {
+        .category-filters {
             display: flex;
-            justify-content: center;
-            gap: 4rem;
+            gap: 1rem;
             flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1rem;
+        .category-filter {
+            padding: 0.5rem 1rem;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .contact-item .icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+        .category-filter.active {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
         }
 
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            color: #666;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -864,7 +280,6 @@
             bottom: 0;
             background: rgba(0, 0, 0, 0.7);
             z-index: 1000;
-            overflow-y: auto;
             padding: 2rem;
         }
 
@@ -882,20 +297,14 @@
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .modal-header {
-            position: sticky;
-            top: 0;
-            background: white;
             padding: 2rem;
             border-bottom: 2px solid #e5e7eb;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 1rem;
-            z-index: 10;
         }
 
         .modal-close {
@@ -906,147 +315,125 @@
             border-radius: 50%;
             font-size: 1.5rem;
             cursor: pointer;
-            transition: all 0.2s;
-            flex-shrink: 0;
-        }
-
-        .modal-close:hover {
-            background: #e5e7eb;
-            transform: rotate(90deg);
         }
 
         .modal-body {
             padding: 2rem;
         }
 
-        .modal-category {
-            background: #f3f4f6;
-            color: #374151;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-            text-transform: capitalize;
+        .pdf-viewer {
+            width: 100%;
+            height: 70vh;
+            border: none;
+            border-radius: 8px;
         }
 
-        .modal-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            color: #111;
-        }
-
-        .modal-meta {
-            display: flex;
-            gap: 2rem;
+        .admin-panel {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
             margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid #e5e7eb;
-            color: #666;
-            font-size: 0.95rem;
         }
 
-        .modal-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .modal-article-content {
-            font-size: 1.125rem;
-            line-height: 1.8;
-            color: #333;
-            white-space: pre-wrap;
-        }
-
-        .modal-article-content p {
+        .form-group {
             margin-bottom: 1.5rem;
         }
 
-        .tabs {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #e5e7eb;
-        }
-
-        .tab {
-            padding: 1rem 1.5rem;
-            cursor: pointer;
+        .form-group label {
+            display: block;
             font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .pdf-upload-area {
+            border: 2px dashed #e5e7eb;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .pdf-upload-area.dragover {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
             color: #666;
-            border-bottom: 3px solid transparent;
-            transition: all 0.2s;
         }
 
-        .tab:hover {
-            color: #2563eb;
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
         }
 
-        .tab.active {
-            color: #2563eb;
-            border-bottom-color: #2563eb;
+        .alert-warning {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
         }
 
-        /* Responsive */
+        .article-list-item {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .article-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
                 gap: 1rem;
-                text-align: center;
-            }
-
-            .nav {
-                gap: 1rem;
-                flex-wrap: wrap;
             }
 
             .hero h2 {
                 font-size: 2rem;
             }
 
-            .articles-header h2 {
-                font-size: 2rem;
-            }
-
-            .category-filters {
-                gap: 0.5rem;
-            }
-
             .articles-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .hero-meta {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .article-list-item, .user-list-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-
-            .modal-content {
-                margin: 1rem;
-            }
-
-            .modal-title {
-                font-size: 1.75rem;
-            }
-
-            .modal-meta {
-                flex-direction: column;
-                gap: 0.75rem;
             }
         }
     </style>
@@ -1065,15 +452,13 @@
             <nav class="nav">
                 <a class="nav-link active" data-page="home">🏠 Home</a>
                 <a class="nav-link" data-page="articles">📰 Articles</a>
-                <a class="nav-link" data-page="archives">📁 Archives</a>
-                <a class="nav-link" data-page="about">👥 About Us</a>
                 <a class="nav-link hidden" id="adminNavLink" data-page="admin">⚙️ Admin</a>
             </nav>
             <div id="userDisplay" class="hidden">
                 <span class="user-badge" id="userBadge">👤 Guest</span>
-                <button class="btn btn-secondary" id="logoutBtn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Logout</button>
+                <button class="btn btn-secondary" id="logoutBtn">Logout</button>
             </div>
-            <button class="btn btn-primary" id="loginNavBtn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Login</button>
+            <button class="btn btn-primary" id="loginNavBtn">Login</button>
         </div>
     </header>
 
@@ -1084,51 +469,33 @@
                 <span class="featured-badge">FEATURED STORY</span>
                 <h2 id="heroTitle">Welcome to Bulldog Inquirer</h2>
                 <p id="heroExcerpt">Your source for student news and stories</p>
-                <div class="hero-meta">
-                    <span id="heroAuthor">👤 By Staff</span>
-                    <span id="heroDate">📅 Today</span>
-                </div>
-                <button class="read-more" data-page="articles">Read Articles →</button>
+                <button class="read-more" id="heroReadMore">Read Articles →</button>
             </div>
         </section>
 
         <div class="main-content">
-            <section class="articles-preview">
-                <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Latest Articles</h2>
-                <p style="text-align: center; color: #666; margin-bottom: 3rem;">Stay updated with the latest news and stories</p>
-                
-                <div class="articles-grid" id="homeArticlesGrid">
-                    <div class="loading">Loading articles...</div>
-                </div>
-
-                <div style="text-align: center; margin-top: 2rem;">
-                    <button class="read-more" data-page="articles" style="background: #000; color: white;">View All Articles →</button>
-                </div>
-            </section>
+            <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem;">Latest Articles</h3>
+            <div class="articles-grid" id="homeArticlesGrid">
+                <div class="loading">Loading articles...</div>
+            </div>
         </div>
     </div>
 
     <!-- Articles Page -->
     <div id="articles" class="page">
         <div class="main-content">
-            <div class="articles-header">
-                <h2>All Articles</h2>
-                <p>Explore our collection of stories, news, and insights</p>
-            </div>
-
-            <div class="search-filter">
-                <div class="search-box">
-                    <input type="text" class="search-input" id="searchInput" placeholder="Search articles...">
-                </div>
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">All Articles</h2>
+            
+            <div style="margin-bottom: 2rem;">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search articles...">
                 
                 <div class="category-filters">
-                    <span class="filter-label">🔽 Filter by Category</span>
-                    <a class="category-filter active" data-category="all">All</a>
-                    <a class="category-filter" data-category="news">News</a>
-                    <a class="category-filter" data-category="sports">Sports</a>
-                    <a class="category-filter" data-category="arts">Arts & Culture</a>
-                    <a class="category-filter" data-category="academics">Academics</a>
-                    <a class="category-filter" data-category="opinion">Opinion</a>
+                    <button class="category-filter active" data-category="all">All</button>
+                    <button class="category-filter" data-category="news">News</button>
+                    <button class="category-filter" data-category="sports">Sports</button>
+                    <button class="category-filter" data-category="arts">Arts & Culture</button>
+                    <button class="category-filter" data-category="academics">Academics</button>
+                    <button class="category-filter" data-category="opinion">Opinion</button>
                 </div>
             </div>
 
@@ -1140,486 +507,138 @@
         </div>
     </div>
 
-    <!-- Archives Page -->
-    <div id="archives" class="page">
-        <div class="main-content">
-            <div class="articles-header">
-                <h2>📁 Archives</h2>
-                <p>Browse our collection of past articles and interviews</p>
-            </div>
-
-            <div class="breadcrumb" id="archiveBreadcrumb">
-                <span class="breadcrumb-item current">Old Articles</span>
-            </div>
-
-            <div class="file-browser" id="archiveBrowser">
-                <div class="loading">Loading archives...</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- About Page -->
-    <div id="about" class="page">
-        <div class="main-content">
-            <div class="about-section">
-                <div class="about-content">
-                    <h2>About Bulldog Inquirer</h2>
-                    <p>We are the voice of our student body, dedicated to bringing you the stories that matter, the news that shapes our community, and the perspectives that make our school unique.</p>
-                </div>
-            </div>
-
-            <section style="margin: 4rem 0;">
-                <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Our Values</h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">📰</div>
-                        <h3>Truth & Accuracy</h3>
-                        <p>We are committed to reporting facts and providing accurate, well-researched journalism.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">👥</div>
-                        <h3>Student Voice</h3>
-                        <p>Our newspaper exists to amplify student perspectives and ensure every voice is heard.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">🏆</div>
-                        <h3>Excellence</h3>
-                        <p>We strive for the highest standards in writing, reporting, and design.</p>
-                    </div>
-                    <div class="value-card">
-                        <div class="value-icon">❤️</div>
-                        <h3>Community</h3>
-                        <p>We believe in fostering connections and building a stronger school community.</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <!-- Login Page -->
-    <div id="login" class="page">
-        <div class="login-container">
-            <div class="login-panel">
-                <h2>Login to Bulldog Inquirer</h2>
-                <div id="loginError" class="alert alert-danger hidden"></div>
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="loginEmail">Email</label>
-                        <input type="email" id="loginEmail" required placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" id="loginPassword" required placeholder="Enter password">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <!-- Admin Page -->
     <div id="admin" class="page">
         <div class="main-content">
-            <div class="articles-header">
-                <h2>Admin Dashboard</h2>
-                <p id="adminWelcome">Manage articles and users</p>
-            </div>
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">Admin Dashboard</h2>
 
-            <div class="tabs">
-                <div class="tab active" data-tab="articles">📰 Articles</div>
-                <div class="tab hidden" id="usersTab" data-tab="users">👥 Users</div>
+            <div class="alert alert-warning">
+                <strong>✓ Secure Connection:</strong> Your Firebase credentials are now protected by Netlify Functions!
             </div>
-
-            <!-- Articles Tab -->
-            <div id="articlesTab" class="tab-content">
-                <div class="admin-panel">
-                    <h3 style="margin-bottom: 1.5rem;">Add New Article</h3>
-                    
-                    <!-- PDF Upload Section -->
-                    <div class="pdf-upload-section">
-                        <h4>📄 Upload Article from PDF</h4>
-                        <p>Upload a PDF file and we'll extract the text for you automatically</p>
-                        <input type="file" id="pdfUpload" accept=".pdf">
-                        <button type="button" id="extractPdfBtn" class="btn btn-secondary">Extract from PDF</button>
-                        <div id="pdfStatus"></div>
+            
+            <div class="admin-panel">
+                <h3 style="margin-bottom: 1.5rem;">Add New Article</h3>
+                
+                <div class="pdf-upload-area" id="pdfUploadArea">
+                    <input type="file" id="pdfFileInput" accept=".pdf" class="hidden">
+                    <div id="uploadPrompt">
+                        <p style="font-size: 1.2rem; margin-bottom: 1rem;">📄 Upload Article PDF</p>
+                        <button type="button" class="btn btn-primary" onclick="document.getElementById('pdfFileInput').click()">
+                            Choose PDF File
+                        </button>
+                        <p style="margin-top: 1rem; font-size: 0.875rem; color: #666;">
+                            or drag and drop a PDF file here
+                        </p>
                     </div>
-
-                    <div class="divider">OR ENTER MANUALLY</div>
-
-                    <!-- Manual Article Form -->
-                    <form id="articleForm">
-                        <div class="form-group">
-                            <label for="articleTitle">Article Title *</label>
-                            <input type="text" id="articleTitle" required placeholder="Enter article title">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="articleCategory">Category *</label>
-                            <select id="articleCategory" required>
-                                <option value="news">News</option>
-                                <option value="sports">Sports</option>
-                                <option value="arts">Arts & Culture</option>
-                                <option value="academics">Academics</option>
-                                <option value="opinion">Opinion</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="articleExcerpt">Excerpt *</label>
-                            <textarea id="articleExcerpt" required placeholder="Brief summary (1-2 sentences)"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="articleContent">Full Content *</label>
-                            <textarea id="articleContent" required placeholder="Full article content" style="min-height: 250px;"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="articleFeatured">
-                                <label for="articleFeatured" style="margin: 0;">Feature on homepage</label>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Publish Article</button>
-                    </form>
+                    <div id="uploadStatus" class="hidden"></div>
                 </div>
 
-                <div class="admin-panel">
-                    <h3 style="margin-bottom: 1.5rem;">Published Articles</h3>
-                    <div id="articleList" class="article-list">
-                        <div class="loading">Loading articles...</div>
+                <div id="articleFormSection" class="hidden">
+                    <div class="form-group">
+                        <label>Article Title *</label>
+                        <input type="text" id="articleTitle" required>
                     </div>
+
+                    <div class="form-group">
+                        <label>Category *</label>
+                        <select id="articleCategory">
+                            <option value="news">News</option>
+                            <option value="sports">Sports</option>
+                            <option value="arts">Arts & Culture</option>
+                            <option value="academics">Academics</option>
+                            <option value="opinion">Opinion</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Author Name *</label>
+                        <input type="text" id="articleAuthor" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Excerpt (Brief Summary) *</label>
+                        <textarea id="articleExcerpt" required placeholder="1-2 sentence summary"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="articleFeatured">
+                            Feature on homepage
+                        </label>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" id="publishBtn" style="width: 100%; padding: 1rem;">
+                        Publish Article
+                    </button>
                 </div>
             </div>
 
-            <!-- Users Tab -->
-            <div id="usersTabContent" class="tab-content hidden">
-                <div class="alert alert-info">
-                    <strong>User Management</strong><br>
-                    Manage user roles and permissions. Use Firebase Console to create users.
-                </div>
-
-                <div class="admin-panel">
-                    <h3 style="margin-bottom: 1.5rem;">All Users</h3>
-                    <div id="userList">
-                        <div class="loading">Loading users...</div>
-                    </div>
+            <div class="admin-panel">
+                <h3 style="margin-bottom: 1.5rem;">Published Articles</h3>
+                <div id="articleList">
+                    <div class="loading">Loading articles...</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Article Modal -->
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2>Login</h2>
+                <button class="modal-close" id="loginModalClose">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword">
+                </div>
+                <button class="btn btn-primary" id="loginSubmit" style="width: 100%;">Login</button>
+                <div id="loginError" class="alert alert-warning hidden" style="margin-top: 1rem;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Viewer Modal -->
     <div id="articleModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div style="flex: 1;">
-                    <span class="modal-category" id="modalCategory"></span>
-                    <h2 class="modal-title" id="modalTitle"></h2>
+                <div>
+                    <span id="modalCategory" class="article-category"></span>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalMeta" style="color: #666; margin-top: 0.5rem;"></p>
                 </div>
-                <button class="modal-close" id="modalClose">×</button>
+                <button class="modal-close" id="articleModalClose">×</button>
             </div>
             <div class="modal-body">
-                <div class="modal-meta">
-                    <span id="modalAuthor">👤 By Author</span>
-                    <span id="modalDate">📅 Date</span>
-                </div>
-                <div class="modal-article-content" id="modalContent"></div>
+                <iframe id="pdfViewer" class="pdf-viewer"></iframe>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <h2>Get In Touch</h2>
-            <p>Have a story idea, news tip, or want to join our team?</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="icon">📧</div>
-                    <div>
-                        <strong>Email Us</strong><br>
-                        inquirer@school.edu
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="icon">📍</div>
-                    <div>
-                        <strong>Visit Us</strong><br>
-                        Room 204, Main Building
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- PDF.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script>
-        if (typeof pdfjsLib !== 'undefined') {
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-        }
-    </script>
-
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-        import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, orderBy, where, updateDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-
-        // Firebase Configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyAgD8oHQ2MHoKD3B60pNi_giKO9lcft4Gs",
-            authDomain: "bulldoginquirer.firebaseapp.com",
-            projectId: "bulldoginquirer",
-            storageBucket: "bulldoginquirer.firebasestorage.app",
-            messagingSenderId: "69389144325",
-            appId: "1:69389144325:web:fdcf8ef7eeeaa46280276c",
-            measurementId: "G-EFESP30LZX"
-        };
-
-        // Initialize Firebase
-        let app, auth, db;
+        // API Configuration - Now uses secure Netlify Functions!
+        const API_BASE = '/.netlify/functions';
+        
         let currentUser = null;
         let currentUserData = null;
         let allArticles = [];
-        let allUsers = [];
-        let archiveIndex = null;
-        let currentArchivePath = [];
         let currentFilter = 'all';
         let currentSearch = '';
+        let uploadedPdfUrl = null;
+        let uploadedPdfFileName = null;
 
-        try {
-            app = initializeApp(firebaseConfig);
-            auth = getAuth(app);
-            db = getFirestore(app);
-            console.log('Firebase initialized successfully');
-        } catch (error) {
-            console.error('Firebase initialization error:', error);
-            alert('Error connecting to database. Please check your internet connection.');
-        }
-
-        // Initialize app
-        function init() {
+        // Initialize
+        async function init() {
             setupEventListeners();
-            setupAuthListener();
-            loadArchiveIndex();
-        }
-
-        // Setup authentication listener
-        function setupAuthListener() {
-            if (!auth) return;
-            
-            onAuthStateChanged(auth, async (user) => {
-                if (user) {
-                    currentUser = user;
-                    await loadUserData(user.uid);
-                    await loadArticles();
-                    await loadUsers();
-                    updateUIForUser();
-                    renderHomePage();
-                    renderArticlesPage();
-                } else {
-                    currentUser = null;
-                    currentUserData = null;
-                    await loadArticles();
-                    updateUIForUser();
-                    renderHomePage();
-                    renderArticlesPage();
-                }
-            });
-        }
-
-        // Load user data from Firestore
-        async function loadUserData(uid) {
-            try {
-                const usersRef = collection(db, 'users');
-                const q = query(usersRef, where('uid', '==', uid));
-                const snapshot = await getDocs(q);
-                
-                if (!snapshot.empty) {
-                    currentUserData = { id: snapshot.docs[0].id, ...snapshot.docs[0].data() };
-                }
-            } catch (error) {
-                console.error('Error loading user data:', error);
-            }
-        }
-
-        // Load articles from Firestore
-        async function loadArticles() {
-            try {
-                const articlesRef = collection(db, 'articles');
-                const q = query(articlesRef, orderBy('timestamp', 'desc'));
-                const snapshot = await getDocs(q);
-                
-                allArticles = snapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
-            } catch (error) {
-                console.error('Error loading articles:', error);
-                allArticles = [];
-            }
-        }
-
-        // Load users from Firestore
-        async function loadUsers() {
-            if (!currentUserData || currentUserData.role !== 'admin') return;
-            
-            try {
-                const usersRef = collection(db, 'users');
-                const snapshot = await getDocs(usersRef);
-                
-                allUsers = snapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
-            } catch (error) {
-                console.error('Error loading users:', error);
-                allUsers = [];
-            }
-        }
-
-        // Load archive index from JSON file
-        async function loadArchiveIndex() {
-            try {
-                const response = await fetch('/archive-index.json');
-                if (response.ok) {
-                    archiveIndex = await response.json();
-                    renderArchivesPage();
-                } else {
-                    archiveIndex = null;
-                    renderArchivesPage();
-                }
-            } catch (error) {
-                console.error('Error loading archive index:', error);
-                archiveIndex = null;
-                renderArchivesPage();
-            }
-        }
-
-        // Render archives page
-        function renderArchivesPage() {
-            const browserDiv = document.getElementById('archiveBrowser');
-            
-            if (!archiveIndex) {
-                browserDiv.innerHTML = `
-                    <div class="loading">
-                        <p>No archives available yet.</p>
-                        <p style="margin-top: 1rem; color: #666;">Archive files will appear here once uploaded.</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Navigate to current path
-            let currentNode = archiveIndex;
-            for (const pathPart of currentArchivePath) {
-                currentNode = currentNode.children.find(c => c.name === pathPart);
-                if (!currentNode) {
-                    currentArchivePath = [];
-                    currentNode = archiveIndex;
-                    break;
-                }
-            }
-            
-            // Render breadcrumb
-            renderArchiveBreadcrumb();
-            
-            // Render current directory
-            if (!currentNode.children || currentNode.children.length === 0) {
-                browserDiv.innerHTML = '<div class="loading">This folder is empty.</div>';
-                return;
-            }
-            
-            browserDiv.innerHTML = currentNode.children.map(item => {
-                if (item.type === 'folder') {
-                    return `
-                        <div class="file-item" data-type="folder" data-name="${item.name}">
-                            <div class="file-icon folder">📁</div>
-                            <div class="file-info">
-                                <div class="file-name">${item.name}</div>
-                                <div class="file-meta">Folder</div>
-                            </div>
-                        </div>
-                    `;
-                } else {
-                    const isDocx = item.name.endsWith('.docx') || item.name.endsWith('.doc');
-                    const isPdf = item.name.endsWith('.pdf');
-                    const icon = isPdf ? '📕' : '📄';
-                    const iconClass = isPdf ? 'pdf' : 'document';
-                    const filePath = item.path;
-                    
-                    return `
-                        <div class="file-item" data-type="file">
-                            <div class="file-icon ${iconClass}">${icon}</div>
-                            <div class="file-info">
-                                <div class="file-name">${item.name}</div>
-                                <div class="file-meta">${isPdf ? 'PDF Document' : 'Word Document'}</div>
-                            </div>
-                            <button class="download-btn" data-path="/${filePath}" data-name="${item.name}">
-                                Download
-                            </button>
-                        </div>
-                    `;
-                }
-            }).join('');
-            
-            // Attach event listeners
-            document.querySelectorAll('.file-item[data-type="folder"]').forEach(folder => {
-                folder.addEventListener('click', () => {
-                    currentArchivePath.push(folder.dataset.name);
-                    renderArchivesPage();
-                });
-            });
-            
-            document.querySelectorAll('.download-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const path = btn.dataset.path;
-                    const name = btn.dataset.name;
-                    downloadFile(path, name);
-                });
-            });
-        }
-
-        // Render archive breadcrumb
-        function renderArchiveBreadcrumb() {
-            const breadcrumbDiv = document.getElementById('archiveBreadcrumb');
-            let html = '<span class="breadcrumb-item" data-index="-1">Old Articles</span>';
-            
-            for (let i = 0; i < currentArchivePath.length; i++) {
-                html += ` <span>›</span> <span class="breadcrumb-item ${i === currentArchivePath.length - 1 ? 'current' : ''}" data-index="${i}">${currentArchivePath[i]}</span>`;
-            }
-            
-            breadcrumbDiv.innerHTML = html;
-            
-            // Attach click listeners
-            document.querySelectorAll('.breadcrumb-item').forEach(item => {
-                if (!item.classList.contains('current')) {
-                    item.addEventListener('click', () => {
-                        const index = parseInt(item.dataset.index);
-                        if (index === -1) {
-                            currentArchivePath = [];
-                        } else {
-                            currentArchivePath = currentArchivePath.slice(0, index + 1);
-                        }
-                        renderArchivesPage();
-                    });
-                }
-            });
-        }
-
-        // Download file
-        function downloadFile(path, filename) {
-            const a = document.createElement('a');
-            a.href = path;
-            a.download = filename;
-            a.target = '_blank';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            await loadArticles();
+            renderHomePage();
+            renderArticlesPage();
         }
 
         // Setup event listeners
@@ -1631,54 +650,29 @@
                     const page = link.dataset.page;
                     
                     if (page === 'admin' && !currentUser) {
-                        showPage('login');
+                        showModal('loginModal');
                         return;
-                    }
-                    
-                    if (page === 'admin') {
-                        renderAdminPage();
-                    }
-                    
-                    if (page === 'archives') {
-                        currentArchivePath = [];
-                        renderArchivesPage();
                     }
                     
                     showPage(page);
                 });
             });
 
-            // Read more buttons
-            document.querySelectorAll('[data-page]').forEach(btn => {
-                if (!btn.classList.contains('nav-link')) {
-                    btn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        showPage(btn.dataset.page);
-                    });
-                }
-            });
-
-            // Login nav button
-            document.getElementById('loginNavBtn').addEventListener('click', () => {
-                showPage('login');
-            });
-
-            // Logout button
+            // Login/Logout
+            document.getElementById('loginNavBtn').addEventListener('click', () => showModal('loginModal'));
             document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+            document.getElementById('loginSubmit').addEventListener('click', handleLogin);
+            document.getElementById('loginModalClose').addEventListener('click', () => closeModal('loginModal'));
+            document.getElementById('articleModalClose').addEventListener('click', () => closeModal('articleModal'));
 
-            // Login form
-            document.getElementById('loginForm').addEventListener('submit', handleLogin);
-
-            // Search
+            // Search and filter
             document.getElementById('searchInput').addEventListener('input', (e) => {
                 currentSearch = e.target.value.toLowerCase();
                 renderArticlesPage();
             });
 
-            // Category filters
             document.querySelectorAll('.category-filter').forEach(filter => {
-                filter.addEventListener('click', (e) => {
-                    e.preventDefault();
+                filter.addEventListener('click', () => {
                     document.querySelectorAll('.category-filter').forEach(f => f.classList.remove('active'));
                     filter.classList.add('active');
                     currentFilter = filter.dataset.category;
@@ -1686,191 +680,80 @@
                 });
             });
 
-            // Article form
-            document.getElementById('articleForm').addEventListener('submit', handleArticleSubmit);
-
             // PDF Upload
-            document.getElementById('extractPdfBtn').addEventListener('click', handlePdfExtraction);
+            const uploadArea = document.getElementById('pdfUploadArea');
+            const fileInput = document.getElementById('pdfFileInput');
 
-            // Tabs
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.addEventListener('click', () => {
-                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    
-                    const tabName = tab.dataset.tab;
-                    document.querySelectorAll('.tab-content').forEach(content => {
-                        content.classList.add('hidden');
-                    });
-                    
-                    if (tabName === 'articles') {
-                        document.getElementById('articlesTab').classList.remove('hidden');
-                    } else if (tabName === 'users') {
-                        document.getElementById('usersTabContent').classList.remove('hidden');
-                    }
-                });
+            fileInput.addEventListener('change', handleFileSelect);
+
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
             });
 
-            // Modal close
-            document.getElementById('modalClose').addEventListener('click', closeModal);
-            document.getElementById('articleModal').addEventListener('click', (e) => {
-                if (e.target.id === 'articleModal') {
-                    closeModal();
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('dragover');
+            });
+
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0 && files[0].type === 'application/pdf') {
+                    fileInput.files = files;
+                    handleFileSelect({ target: fileInput });
                 }
             });
+
+            // Publish article
+            document.getElementById('publishBtn').addEventListener('click', handlePublishArticle);
+
+            // Hero read more
+            document.getElementById('heroReadMore').addEventListener('click', () => showPage('articles'));
         }
 
-        // Open article modal
-        function openArticleModal(article) {
-            const modal = document.getElementById('articleModal');
-            document.getElementById('modalCategory').textContent = article.category;
-            document.getElementById('modalTitle').textContent = article.title;
-            document.getElementById('modalAuthor').textContent = `👤 By ${article.authorName}`;
-            document.getElementById('modalDate').textContent = `📅 ${formatDate(article.date)}`;
-            document.getElementById('modalContent').textContent = article.content;
-            
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Close modal
-        function closeModal() {
-            const modal = document.getElementById('articleModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Handle PDF extraction
-        async function handlePdfExtraction() {
-            const fileInput = document.getElementById('pdfUpload');
-            const statusDiv = document.getElementById('pdfStatus');
-            const file = fileInput.files[0];
-
-            if (!file) {
-                statusDiv.textContent = '⚠️ Please select a PDF file first';
-                statusDiv.style.color = '#dc2626';
-                return;
-            }
+        // Handle file selection
+        async function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (!file) return;
 
             if (file.type !== 'application/pdf') {
-                statusDiv.textContent = '⚠️ Please select a valid PDF file';
-                statusDiv.style.color = '#dc2626';
+                alert('Please select a PDF file');
                 return;
             }
 
-            statusDiv.textContent = '⏳ Extracting text from PDF...';
-            statusDiv.style.color = '#2563eb';
-
-            try {
-                const arrayBuffer = await file.arrayBuffer();
-                const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-                
-                let fullText = '';
-                
-                for (let i = 1; i <= pdf.numPages; i++) {
-                    const page = await pdf.getPage(i);
-                    const textContent = await page.getTextContent();
-                    const pageText = textContent.items.map(item => item.str).join(' ');
-                    fullText += pageText + '\n\n';
-                }
-
-                if (!fullText.trim()) {
-                    statusDiv.textContent = '⚠️ No text found in PDF';
-                    statusDiv.style.color = '#dc2626';
-                    return;
-                }
-
-                // Populate the content field
-                document.getElementById('articleContent').value = fullText.trim();
-                
-                // Try to extract a title (first line or first 100 chars)
-                const lines = fullText.trim().split('\n').filter(line => line.trim());
-                if (lines.length > 0 && lines[0].length < 200) {
-                    document.getElementById('articleTitle').value = lines[0].substring(0, 100);
-                }
-
-                // Try to create an excerpt from the first few sentences
-                const sentences = fullText.trim().split(/[.!?]+/).filter(s => s.trim());
-                if (sentences.length > 0) {
-                    const excerpt = sentences.slice(0, 2).join('. ').substring(0, 200) + '...';
-                    document.getElementById('articleExcerpt').value = excerpt;
-                }
-
-                statusDiv.textContent = '✅ Text extracted successfully! Please review and edit as needed.';
-                statusDiv.style.color = '#059669';
-                
-                // Scroll to form
-                document.getElementById('articleTitle').scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } catch (error) {
-                console.error('Error extracting PDF:', error);
-                statusDiv.textContent = '❌ Error extracting text from PDF. Please try again or enter manually.';
-                statusDiv.style.color = '#dc2626';
-            }
-        }
-
-        // Handle login
-        async function handleLogin(e) {
-            e.preventDefault();
+            const uploadStatus = document.getElementById('uploadStatus');
+            const uploadPrompt = document.getElementById('uploadPrompt');
             
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            const errorDiv = document.getElementById('loginError');
+            uploadPrompt.classList.add('hidden');
+            uploadStatus.classList.remove('hidden');
+            uploadStatus.innerHTML = '<p>⏳ Uploading PDF...</p>';
 
             try {
-                await signInWithEmailAndPassword(auth, email, password);
-                document.getElementById('loginForm').reset();
-                errorDiv.classList.add('hidden');
-                showPage('admin');
-            } catch (error) {
-                console.error('Login error:', error);
-                errorDiv.textContent = 'Invalid email or password';
-                errorDiv.classList.remove('hidden');
-            }
-        }
+                // Upload PDF via Netlify Function
+                const formData = new FormData();
+                formData.append('file', file);
 
-        // Handle logout
-        async function handleLogout() {
-            try {
-                await signOut(auth);
-                showPage('home');
-                alert('You have been logged out');
-            } catch (error) {
-                console.error('Logout error:', error);
-                alert('Error logging out');
-            }
-        }
+                const response = await fetch(`${API_BASE}/upload-pdf`, {
+                    method: 'POST',
+                    body: formData
+                });
 
-        // Update UI based on current user
-        function updateUIForUser() {
-            const loginBtn = document.getElementById('loginNavBtn');
-            const userDisplay = document.getElementById('userDisplay');
-            const userBadge = document.getElementById('userBadge');
-            const adminNavLink = document.getElementById('adminNavLink');
-            const usersTab = document.getElementById('usersTab');
+                const result = await response.json();
 
-            if (currentUser && currentUserData) {
-                loginBtn.classList.add('hidden');
-                userDisplay.classList.remove('hidden');
-                
-                const roleEmoji = currentUserData.role === 'admin' ? '👑' : currentUserData.role === 'writer' ? '✍️' : '👤';
-                userBadge.textContent = `${roleEmoji} ${currentUserData.fullName}`;
-                userBadge.className = `user-badge ${currentUserData.role}`;
-                
-                if (currentUserData.role === 'admin' || currentUserData.role === 'writer') {
-                    adminNavLink.classList.remove('hidden');
-                    
-                    if (currentUserData.role === 'admin') {
-                        usersTab.classList.remove('hidden');
-                    } else {
-                        usersTab.classList.add('hidden');
-                    }
+                if (result.success) {
+                    alert('Article deleted successfully!');
+                    await loadArticles();
+                    renderHomePage();
+                    renderArticlesPage();
+                    renderAdminPage();
                 } else {
-                    adminNavLink.classList.add('hidden');
+                    throw new Error(result.error);
                 }
-            } else {
-                loginBtn.classList.remove('hidden');
-                userDisplay.classList.add('hidden');
-                adminNavLink.classList.add('hidden');
+            } catch (error) {
+                console.error('Delete error:', error);
+                alert('Failed to delete article. Please try again.');
             }
         }
 
@@ -1886,6 +769,15 @@
             window.scrollTo(0, 0);
         }
 
+        // Show/close modal
+        function showModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
         // Render home page
         function renderHomePage() {
             const featured = allArticles.find(a => a.featured) || allArticles[0];
@@ -1893,15 +785,13 @@
             if (featured) {
                 document.getElementById('heroTitle').textContent = featured.title;
                 document.getElementById('heroExcerpt').textContent = featured.excerpt;
-                document.getElementById('heroAuthor').textContent = `👤 By ${featured.authorName}`;
-                document.getElementById('heroDate').textContent = `📅 ${formatDate(featured.date)}`;
             }
 
             const grid = document.getElementById('homeArticlesGrid');
-            const latestArticles = allArticles.slice(0, 3);
+            const latestArticles = allArticles.slice(0, 6);
             
             if (latestArticles.length === 0) {
-                grid.innerHTML = '<div class="loading">No articles yet. Login as admin or writer to add articles!</div>';
+                grid.innerHTML = '<div class="loading">No articles yet. Login as admin to add articles!</div>';
                 return;
             }
 
@@ -1920,8 +810,7 @@
             if (currentSearch) {
                 filtered = filtered.filter(a => 
                     a.title.toLowerCase().includes(currentSearch) ||
-                    a.excerpt.toLowerCase().includes(currentSearch) ||
-                    a.content.toLowerCase().includes(currentSearch)
+                    a.excerpt.toLowerCase().includes(currentSearch)
                 );
             }
 
@@ -1937,7 +826,32 @@
             attachArticleCardListeners();
         }
 
-        // Create article card HTML
+        // Render admin page
+        function renderAdminPage() {
+            const list = document.getElementById('articleList');
+            
+            if (allArticles.length === 0) {
+                list.innerHTML = '<div class="loading">No articles published yet.</div>';
+                return;
+            }
+
+            list.innerHTML = allArticles.map(article => `
+                <div class="article-list-item">
+                    <div>
+                        <h4 style="font-weight: 600;">${article.title} ${article.featured ? '⭐' : ''}</h4>
+                        <p style="font-size: 0.875rem; color: #666;">
+                            ${article.category} • ${article.authorName || article.author} • ${formatDate(article.date)}
+                        </p>
+                    </div>
+                    <div class="article-actions">
+                        <button class="btn btn-primary" onclick="openArticleModal('${article.id}')">View</button>
+                        <button class="btn btn-danger" onclick="deleteArticle('${article.id}')">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Create article card
         function createArticleCard(article) {
             const icon = getCategoryIcon(article.category);
             return `
@@ -1948,7 +862,7 @@
                         <h3 class="article-title">${article.title}</h3>
                         <p class="article-excerpt">${article.excerpt}</p>
                         <div class="article-meta">
-                            <span>By ${article.authorName}</span>
+                            <span>By ${article.authorName || article.author}</span>
                             <span>${formatDate(article.date)}</span>
                         </div>
                     </div>
@@ -1956,17 +870,30 @@
             `;
         }
 
-        // Attach click listeners to article cards
+        // Attach article card click listeners
         function attachArticleCardListeners() {
             document.querySelectorAll('.article-card').forEach(card => {
                 card.addEventListener('click', () => {
                     const articleId = card.dataset.articleId;
-                    const article = allArticles.find(a => a.id === articleId);
-                    if (article) {
-                        openArticleModal(article);
-                    }
+                    openArticleModal(articleId);
                 });
             });
+        }
+
+        // Open article modal
+        function openArticleModal(articleId) {
+            const article = allArticles.find(a => a.id === articleId);
+            if (!article) return;
+
+            document.getElementById('modalCategory').textContent = article.category;
+            document.getElementById('modalTitle').textContent = article.title;
+            document.getElementById('modalMeta').textContent = `By ${article.authorName || article.author} • ${formatDate(article.date)}`;
+            
+            if (article.pdfUrl) {
+                document.getElementById('pdfViewer').src = article.pdfUrl;
+            }
+
+            showModal('articleModal');
         }
 
         // Get category icon
@@ -1987,150 +914,217 @@
             return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
 
-        // Render admin page
-        function renderAdminPage() {
-            if (!currentUserData) return;
-
-            const welcomeText = document.getElementById('adminWelcome');
-            welcomeText.textContent = currentUserData.role === 'admin' 
-                ? 'Full admin access - Manage all articles and users' 
-                : 'Writer access - Create and manage your own articles';
-
-            renderArticleList();
-            
-            if (currentUserData.role === 'admin') {
-                renderUserList();
-            }
-        }
-
-        // Render article list
-        function renderArticleList() {
-            const list = document.getElementById('articleList');
-            
-            let articlesToShow = allArticles;
-            
-            if (currentUserData.role === 'writer') {
-                articlesToShow = allArticles.filter(a => a.authorUid === currentUser.uid);
-            }
-            
-            if (articlesToShow.length === 0) {
-                list.innerHTML = '<div class="loading">No articles published yet.</div>';
-                return;
-            }
-
-            list.innerHTML = articlesToShow.map(article => {
-                const canEdit = currentUserData.role === 'admin' || article.authorUid === currentUser.uid;
-                
-                return `
-                    <div class="article-list-item">
-                        <div class="article-list-info">
-                            <h4>${article.title} ${article.featured ? '<span style="color: #dc2626;">★</span>' : ''}</h4>
-                            <p>${article.category} • ${article.authorName} • ${formatDate(article.date)}</p>
-                        </div>
-                        <div class="article-actions">
-                            ${canEdit ? `<button class="btn btn-danger" onclick="window.deleteArticle('${article.id}')">Delete</button>` : ''}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Render user list
-        function renderUserList() {
-            const list = document.getElementById('userList');
-            
-            if (allUsers.length === 0) {
-                list.innerHTML = '<div class="loading">No users found. Create users in Firebase Console.</div>';
-                return;
-            }
-
-            list.innerHTML = allUsers.map(user => `
-                <div class="user-list-item">
-                    <div class="user-list-info">
-                        <h4>${user.fullName} ${user.uid === currentUser.uid ? '(You)' : ''}</h4>
-                        <p>${user.email} • ${user.role}</p>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Handle article submission
-        async function handleArticleSubmit(e) {
-            e.preventDefault();
-
-            if (!currentUser || !currentUserData || (currentUserData.role !== 'admin' && currentUserData.role !== 'writer')) {
-                alert('You do not have permission to create articles');
-                return;
-            }
-
-            const article = {
-                title: document.getElementById('articleTitle').value,
-                category: document.getElementById('articleCategory').value,
-                authorUid: currentUser.uid,
-                authorName: currentUserData.fullName,
-                date: new Date().toISOString().split('T')[0],
-                excerpt: document.getElementById('articleExcerpt').value,
-                content: document.getElementById('articleContent').value,
-                featured: document.getElementById('articleFeatured').checked,
-                timestamp: new Date()
-            };
-
-            try {
-                // If marking as featured, unfeature other articles
-                if (article.featured) {
-                    for (const existingArticle of allArticles) {
-                        if (existingArticle.featured) {
-                            await updateDoc(doc(db, 'articles', existingArticle.id), { featured: false });
-                        }
-                    }
-                }
-
-                await addDoc(collection(db, 'articles'), article);
-                
-                document.getElementById('articleForm').reset();
-                document.getElementById('pdfUpload').value = '';
-                document.getElementById('pdfStatus').textContent = '';
-                
-                await loadArticles();
-                renderHomePage();
-                renderArticlesPage();
-                renderArticleList();
-                
-                alert('Article published successfully!');
-            } catch (error) {
-                console.error('Error saving article:', error);
-                alert('Error publishing article. Please try again.');
-            }
-        }
-
-        // Delete article
-        window.deleteArticle = async function(articleId) {
-            if (!confirm('Are you sure you want to delete this article?')) {
-                return;
-            }
-
-            const article = allArticles.find(a => a.id === articleId);
-            
-            if (currentUserData.role !== 'admin' && article.authorUid !== currentUser.uid) {
-                alert('You can only delete your own articles');
-                return;
-            }
-
-            try {
-                await deleteDoc(doc(db, 'articles', articleId));
-                await loadArticles();
-                renderHomePage();
-                renderArticlesPage();
-                renderArticleList();
-                alert('Article deleted successfully!');
-            } catch (error) {
-                console.error('Error deleting article:', error);
-                alert('Error deleting article. Please try again.');
-            }
-        };
-
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
-</html>
+</html>if (result.success) {
+                    uploadedPdfUrl = result.url;
+                    uploadedPdfFileName = result.fileName;
+                    
+                    uploadStatus.innerHTML = `<p style="color: #059669;">✓ PDF uploaded successfully: ${file.name}</p>`;
+                    document.getElementById('articleFormSection').classList.remove('hidden');
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                console.error('Upload error:', error);
+                uploadStatus.innerHTML = `<p style="color: #dc2626;">❌ Upload failed: ${error.message}</p>`;
+                uploadPrompt.classList.remove('hidden');
+            }
+        }
+
+        // Load articles from Netlify Function
+        async function loadArticles() {
+            try {
+                const response = await fetch(`${API_BASE}/firebase-api`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'getArticles' })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    allArticles = result.articles;
+                } else {
+                    console.error('Error loading articles:', result.error);
+                    allArticles = [];
+                }
+            } catch (error) {
+                console.error('Error loading articles:', error);
+                allArticles = [];
+            }
+        }
+
+        // Handle login
+        async function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('loginError');
+
+            if (!email || !password) {
+                errorDiv.textContent = 'Please enter email and password';
+                errorDiv.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                // Call Netlify Function for authentication
+                const response = await fetch(`${API_BASE}/firebase-api`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'login',
+                        data: { email, password }
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    currentUser = { token: result.token };
+                    currentUserData = result.user;
+                    
+                    updateUIForUser();
+                    closeModal('loginModal');
+                    showPage('admin');
+                    renderAdminPage();
+                    
+                    document.getElementById('loginEmail').value = '';
+                    document.getElementById('loginPassword').value = '';
+                    errorDiv.classList.add('hidden');
+                } else {
+                    errorDiv.textContent = 'Invalid email or password';
+                    errorDiv.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                errorDiv.textContent = 'Login failed. Please try again.';
+                errorDiv.classList.remove('hidden');
+            }
+        }
+
+        // Handle logout
+        function handleLogout() {
+            currentUser = null;
+            currentUserData = null;
+            updateUIForUser();
+            showPage('home');
+        }
+
+        // Update UI based on user
+        function updateUIForUser() {
+            const loginBtn = document.getElementById('loginNavBtn');
+            const userDisplay = document.getElementById('userDisplay');
+            const userBadge = document.getElementById('userBadge');
+            const adminNavLink = document.getElementById('adminNavLink');
+
+            if (currentUser && currentUserData) {
+                loginBtn.classList.add('hidden');
+                userDisplay.classList.remove('hidden');
+                adminNavLink.classList.remove('hidden');
+                
+                const roleEmoji = currentUserData.role === 'admin' ? '👑' : '✍️';
+                userBadge.textContent = `${roleEmoji} ${currentUserData.fullName}`;
+                userBadge.className = `user-badge ${currentUserData.role}`;
+            } else {
+                loginBtn.classList.remove('hidden');
+                userDisplay.classList.add('hidden');
+                adminNavLink.classList.add('hidden');
+            }
+        }
+
+        // Publish article
+        async function handlePublishArticle() {
+            if (!uploadedPdfUrl) {
+                alert('Please upload a PDF first');
+                return;
+            }
+
+            const title = document.getElementById('articleTitle').value;
+            const category = document.getElementById('articleCategory').value;
+            const author = document.getElementById('articleAuthor').value;
+            const excerpt = document.getElementById('articleExcerpt').value;
+            const featured = document.getElementById('articleFeatured').checked;
+
+            if (!title || !author || !excerpt) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            const article = {
+                title,
+                category,
+                author,
+                authorName: author,
+                authorUid: currentUserData?.uid || 'unknown',
+                date: new Date().toISOString().split('T')[0],
+                excerpt,
+                content: '',
+                featured,
+                pdfUrl: uploadedPdfUrl,
+                pdfFileName: uploadedPdfFileName
+            };
+
+            try {
+                const response = await fetch(`${API_BASE}/firebase-api`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'addArticle',
+                        data: {
+                            userToken: currentUser.token,
+                            article
+                        }
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Article published successfully!');
+                    
+                    // Reset form
+                    document.getElementById('articleTitle').value = '';
+                    document.getElementById('articleAuthor').value = '';
+                    document.getElementById('articleExcerpt').value = '';
+                    document.getElementById('articleFeatured').checked = false;
+                    document.getElementById('articleFormSection').classList.add('hidden');
+                    document.getElementById('uploadPrompt').classList.remove('hidden');
+                    document.getElementById('uploadStatus').classList.add('hidden');
+                    document.getElementById('pdfFileInput').value = '';
+                    uploadedPdfUrl = null;
+                    uploadedPdfFileName = null;
+                    
+                    await loadArticles();
+                    renderHomePage();
+                    renderArticlesPage();
+                    renderAdminPage();
+                } else {
+                    throw new Error(result.error);
+                }
+            } catch (error) {
+                console.error('Publish error:', error);
+                alert('Failed to publish article. Please try again.');
+            }
+        }
+
+        // Delete article
+        async function deleteArticle(articleId) {
+            if (!confirm('Are you sure you want to delete this article?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/firebase-api`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'deleteArticle',
+                        data: {
+                            userToken: currentUser.token,
+                            articleId
+                        }
+                    })
+                });
