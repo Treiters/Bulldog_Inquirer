@@ -1,3 +1,23 @@
+// Initialize Firebase Client SDK (safe to be public)
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
+// Your Firebase config (this is SAFE to be public!)
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAgD8oHQ2MHoKD3B60pNi_giKO9lcft4Gs",
+  authDomain: "bulldoginquirer.firebaseapp.com",
+  projectId: "bulldoginquirer",
+  storageBucket: "bulldoginquirer.firebasestorage.app",
+  messagingSenderId: "69389144325",
+  appId: "1:69389144325:web:fdcf8ef7eeeaa46280276c",
+  measurementId: "G-EFESP30LZX"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 const API_BASE = '/.netlify/functions';
 let currentUser = null;
 let currentUserData = null;
@@ -143,19 +163,27 @@ async function handleLogin() {
     }
 
     try {
+        // Use Firebase Client SDK to authenticate (this verifies the password!)
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        
+        // Get ID token
+        const token = await user.getIdToken();
+
+        // Get user data from your backend
         const response = await fetch(`${API_BASE}/firebase-api`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                action: 'login',
-                data: { email, password }
+                action: 'getUserData',
+                data: { uid: user.uid, token }
             })
         });
 
         const result = await response.json();
 
         if (result.success) {
-            currentUser = { token: result.token };
+            currentUser = { token, uid: user.uid };
             currentUserData = result.user;
             updateUIForUser();
             closeModal('loginModal');
@@ -165,12 +193,11 @@ async function handleLogin() {
             document.getElementById('loginPassword').value = '';
             errorDiv.classList.add('hidden');
         } else {
-            errorDiv.textContent = 'Invalid email or password';
-            errorDiv.classList.remove('hidden');
+            throw new Error(result.error);
         }
     } catch (error) {
         console.error('Login error:', error);
-        errorDiv.textContent = 'Login failed';
+        errorDiv.textContent = error.message || 'Invalid email or password';
         errorDiv.classList.remove('hidden');
     }
 }

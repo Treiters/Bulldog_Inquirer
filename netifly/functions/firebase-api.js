@@ -37,6 +37,7 @@ exports.handler = async (event, context) => {
     const app = getFirebaseApp();
     const db = admin.firestore(app);
     const storage = admin.storage(app);
+    const auth = admin.auth(app);
     
     const body = event.body ? JSON.parse(event.body) : {};
     const { action, data } = body;
@@ -60,7 +61,7 @@ exports.handler = async (event, context) => {
     }
 
     if (action === 'addArticle') {
-      // Verify user is authenticated (you'll pass a token from client)
+      // Verify user token
       if (!data.userToken) {
         return {
           statusCode: 401,
@@ -69,7 +70,18 @@ exports.handler = async (event, context) => {
         };
       }
 
-      // Add article to Firestore (including PDF URL)
+      try {
+        // Verify the ID token
+        await auth.verifyIdToken(data.userToken);
+      } catch (error) {
+        return {
+          statusCode: 401,
+          headers,
+          body: JSON.stringify({ success: false, error: 'Invalid token' })
+        };
+      }
+
+      // Add article to Firestore
       const docRef = await db.collection('articles').add({
         title: data.article.title,
         category: data.article.category,
@@ -101,6 +113,17 @@ exports.handler = async (event, context) => {
         };
       }
 
+      try {
+        // Verify the ID token
+        await auth.verifyIdToken(data.userToken);
+      } catch (error) {
+        return {
+          statusCode: 401,
+          headers,
+          body: JSON.stringify({ success: false, error: 'Invalid token' })
+        };
+      }
+
       await db.collection('articles').doc(data.articleId).delete();
 
       return {
@@ -110,41 +133,51 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // AUTHENTICATION
-    if (action === 'login') {
-      const auth = admin.auth(app);
-      
+    // Get user data from Firestore
+    if (action === 'getUserData') {
+      if (!data.token || !data.uid) {
+        return {
+          statusCode: 401,
+          headers,
+          body: JSON.stringify({ success: false, error: 'Unauthorized' })
+        };
+      }
+
       try {
-        // Verify user exists
-        const userRecord = await auth.getUserByEmail(data.email);
-        
-        // Create custom token
-        const token = await auth.createCustomToken(userRecord.uid);
+        // Verify the ID token
+        await auth.verifyIdToken(data.token);
         
         // Get user data from Firestore
-        const userDoc = await db.collection('users')
-          .where('uid', '==', userRecord.uid)
-          .get();
+        const userDoc = await db.collection('users').doc(data.uid).get();
         
-        let userData = null;
-        if (!userDoc.empty) {
-          userData = userDoc.docs[0].data();
+        if (!userDoc.exists) {
+          return {
+            statusCode: 404,
+            headers,
+            body: JSON.stringify({ success: false, error: 'User not found' })
+          };
         }
+
+        const userData = userDoc.data();
 
         return {
           statusCode: 200,
           headers,
           body: JSON.stringify({ 
             success: true, 
-            token,
-            user: userData
+            user: {
+              uid: data.uid,
+              fullName: userData.fullName,
+              role: userData.role,
+              email: userData.email
+            }
           })
         };
       } catch (error) {
         return {
           statusCode: 401,
           headers,
-          body: JSON.stringify({ success: false, error: 'Invalid credentials' })
+          body: JSON.stringify({ success: false, error: 'Invalid token' })
         };
       }
     }
