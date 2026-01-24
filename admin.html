@@ -2,20 +2,154 @@
 <html>
 <head>
     <title>Article Admin</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .login-form, .article-form { display: none; }
+        .login-form.active, .article-form.active { display: block; }
+        input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; }
+        button { background: #0066cc; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+        button:hover { background: #0052a3; }
+        #output { margin-top: 20px; padding: 10px; background: #f0f0f0; }
+    </style>
 </head>
 <body>
-    <h1>Add New Article</h1>
-    <form id="articleForm">
-        <input type="text" id="title" placeholder="Title" required>
-        <select id="category">
-            <option value="news">News</option>
-            <option value="sports">Sports</option>
-            <option value="arts">Arts & Culture</option>
-        </select>
-        <input type="text" id="author" placeholder="Author" required>
-        <textarea id="content" placeholder="Article content"></textarea>
-        <button type="submit">Generate JSON</button>
-    </form>
-    <div id="output"></div>
+    <!-- Login Form -->
+    <div id="loginSection" class="login-form active">
+        <h1>Admin Login</h1>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div id="loginError" style="color: red; margin-top: 10px;"></div>
+    </div>
+
+    <!-- Article Form (shown after login) -->
+    <div id="articleSection" class="article-form">
+        <h1>Add New Article</h1>
+        <p>Logged in as: <span id="userEmail"></span> | <button onclick="logout()">Logout</button></p>
+        <form id="articleForm">
+            <input type="text" id="title" placeholder="Title" required>
+            <select id="category">
+                <option value="news">News</option>
+                <option value="sports">Sports</option>
+                <option value="arts">Arts & Culture</option>
+            </select>
+            <input type="text" id="author" placeholder="Author" required>
+            <textarea id="content" placeholder="Article content" rows="10"></textarea>
+            <button type="submit">Add Article</button>
+        </form>
+        <div id="output"></div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="firebase-config.js"></script>
+
+    <script>
+        let currentUser = null;
+        let userToken = null;
+
+        // Check if user is already logged in
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                currentUser = user;
+                user.getIdToken().then(token => {
+                    userToken = token;
+                    showArticleForm();
+                });
+            } else {
+                showLoginForm();
+            }
+        });
+
+        // Login form handler
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('loginError');
+
+            try {
+                const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+                currentUser = userCredential.user;
+                userToken = await currentUser.getIdToken();
+                errorDiv.textContent = '';
+                showArticleForm();
+            } catch (error) {
+                console.error('Login error:', error);
+                errorDiv.textContent = `Login failed: ${error.message}`;
+            }
+        });
+
+        // Article form handler
+        document.getElementById('articleForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!userToken) {
+                alert('Please login first');
+                return;
+            }
+
+            const article = {
+                title: document.getElementById('title').value,
+                category: document.getElementById('category').value,
+                author: document.getElementById('author').value,
+                content: document.getElementById('content').value
+            };
+
+            try {
+                const response = await fetch('/.netlify/functions/firebase-api', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        action: 'addArticle',
+                        data: {
+                            userToken: userToken,
+                            article: article
+                        }
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    document.getElementById('output').innerHTML = 
+                        `<h3 style="color: green;">Article added successfully!</h3>
+                         <p>Article ID: ${result.articleId}</p>`;
+                    document.getElementById('articleForm').reset();
+                } else {
+                    document.getElementById('output').innerHTML = 
+                        `<h3 style="color: red;">Error: ${result.error}</h3>`;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('output').innerHTML = 
+                    `<h3 style="color: red;">Error: ${error.message}</h3>`;
+            }
+        });
+
+        function showLoginForm() {
+            document.getElementById('loginSection').classList.add('active');
+            document.getElementById('articleSection').classList.remove('active');
+        }
+
+        function showArticleForm() {
+            document.getElementById('loginSection').classList.remove('active');
+            document.getElementById('articleSection').classList.add('active');
+            document.getElementById('userEmail').textContent = currentUser.email;
+        }
+
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                currentUser = null;
+                userToken = null;
+                showLoginForm();
+            });
+        }
+    </script>
 </body>
 </html>
