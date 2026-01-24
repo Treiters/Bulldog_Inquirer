@@ -206,11 +206,15 @@ function openArchivePDF(filePath, fileName) {
     document.getElementById('modalCategory').textContent = 'Archive';
     document.getElementById('modalTitle').textContent = fileName;
     document.getElementById('modalMeta').textContent = 'From the archives';
+    document.getElementById('modalExcerpt').textContent = 'View this archived article from our past issues.';
     
-    // Use Google Docs Viewer as fallback for better PDF display
-    const fullUrl = `${window.location.origin}/${filePath}`;
-    const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(fullUrl)}&embedded=true`;
-    document.getElementById('pdfViewer').src = viewerUrl;
+    const pdfUrl = `${window.location.origin}/${filePath}`;
+    
+    // Set up button to open PDF in new tab
+    const openPdfBtn = document.getElementById('openPdfBtn');
+    openPdfBtn.onclick = () => {
+        window.open(pdfUrl, '_blank');
+    };
     
     showModal('articleModal');
 }
@@ -462,12 +466,16 @@ function openArticleModal(articleId) {
     document.getElementById('modalCategory').textContent = article.category;
     document.getElementById('modalTitle').textContent = article.title;
     document.getElementById('modalMeta').textContent = `By ${article.authorName || article.author} • ${formatDate(article.date)}`;
+    document.getElementById('modalExcerpt').textContent = article.excerpt || 'Read the full article to learn more.';
     
     if (article.pdfUrl) {
-        // Use Google Docs Viewer for better PDF display
-        const fullUrl = article.pdfUrl.startsWith('http') ? article.pdfUrl : `${window.location.origin}/${article.pdfUrl}`;
-        const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(fullUrl)}&embedded=true`;
-        document.getElementById('pdfViewer').src = viewerUrl;
+        const pdfUrl = article.pdfUrl.startsWith('http') ? article.pdfUrl : `${window.location.origin}/${article.pdfUrl}`;
+        
+        // Set up button to open PDF in new tab
+        const openPdfBtn = document.getElementById('openPdfBtn');
+        openPdfBtn.onclick = () => {
+            window.open(pdfUrl, '_blank');
+        };
     }
 
     showModal('articleModal');

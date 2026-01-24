@@ -328,15 +328,52 @@
         }
 
         .modal-body {
-            padding: 0;
+            padding: 2rem;
             flex: 1;
-            overflow: hidden;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .pdf-viewer {
+        .article-preview {
+            max-width: 700px;
             width: 100%;
-            height: 100%;
+            text-align: center;
+        }
+
+        .article-preview .excerpt {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #374151;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .open-pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: #2563eb;
+            color: white;
             border: none;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 1rem;
+        }
+
+        .open-pdf-btn:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+        }
+
+        .pdf-icon {
+            font-size: 1.5rem;
         }
 
         .admin-panel {
@@ -870,7 +907,13 @@
                 <button class="modal-close" id="articleModalClose">×</button>
             </div>
             <div class="modal-body">
-                <iframe id="pdfViewer" class="pdf-viewer"></iframe>
+                <div class="article-preview">
+                    <p class="excerpt" id="modalExcerpt"></p>
+                    <button class="open-pdf-btn" id="openPdfBtn">
+                        <span class="pdf-icon">📄</span>
+                        Open Full Article
+                    </button>
+                </div>
             </div>
         </div>
     </div>
