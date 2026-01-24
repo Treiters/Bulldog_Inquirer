@@ -280,9 +280,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.9);
             z-index: 1000;
-            padding: 2rem;
+            padding: 0;
         }
 
         .modal.active {
@@ -293,19 +293,23 @@
 
         .modal-content {
             background: white;
-            border-radius: 12px;
-            max-width: 900px;
+            border-radius: 0;
             width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .modal-header {
-            padding: 2rem;
+            padding: 1.5rem 2rem;
             border-bottom: 2px solid #e5e7eb;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            flex-shrink: 0;
         }
 
         .modal-close {
@@ -316,17 +320,23 @@
             border-radius: 50%;
             font-size: 1.5rem;
             cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .modal-close:hover {
+            background: #e5e7eb;
         }
 
         .modal-body {
-            padding: 2rem;
+            padding: 0;
+            flex: 1;
+            overflow: hidden;
         }
 
         .pdf-viewer {
             width: 100%;
-            height: 70vh;
+            height: 100%;
             border: none;
-            border-radius: 8px;
         }
 
         .admin-panel {
@@ -495,7 +505,7 @@
         /* About Us Styles */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -507,6 +517,12 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             border: 1px solid #e5e7eb;
             text-align: center;
+            transition: all 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
         }
 
         .team-member-icon {
@@ -521,26 +537,27 @@
             font-size: 2rem;
         }
 
-        .team-member-role {
-            font-size: 0.875rem;
-            color: #2563eb;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-
         .team-member-name {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #111;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .team-member-topics {
-            color: #666;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .topic-badge {
+            background: #eff6ff;
+            color: #2563eb;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
             font-size: 0.875rem;
-            line-height: 1.6;
+            font-weight: 600;
         }
 
         .about-intro {
@@ -643,77 +660,128 @@
                 <p>We are a dedicated team of student journalists committed to bringing you the latest news, stories, and perspectives from our school community.</p>
             </div>
 
-            <h3 style="font-size:2rem;margin-bottom:2rem;text-align:center">Our Team</h3>
+            <h3 style="font-size:2rem;margin-bottom:2rem;text-align:center">Our Writers</h3>
 
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-member-icon">📖</div>
-                    <div class="team-member-role">Biography</div>
+                    <div class="team-member-icon">✍️</div>
                     <div class="team-member-name">Oliver</div>
-                    <div class="team-member-topics">Covering life stories and profiles</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-member-icon">🏛️</div>
-                    <div class="team-member-role">Politics</div>
-                    <div class="team-member-name">Calvin, Winston, Joise</div>
-                    <div class="team-member-topics">Reporting on political affairs and governance</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-member-icon">💻</div>
-                    <div class="team-member-role">Technology</div>
-                    <div class="team-member-name">Paul, Julian</div>
-                    <div class="team-member-topics">Exploring tech trends and innovations</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-member-icon">⚽</div>
-                    <div class="team-member-role">Sports</div>
-                    <div class="team-member-name">Finn, Jason, Troy</div>
-                    <div class="team-member-topics">Bringing you athletic highlights and scores</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-member-icon">🎬</div>
-                    <div class="team-member-role">Film</div>
-                    <div class="team-member-name">Niamh</div>
-                    <div class="team-member-topics">Reviewing movies and entertainment</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-member-icon">🌍</div>
-                    <div class="team-member-role">Environment</div>
-                    <div class="team-member-name">Rian</div>
-                    <div class="team-member-topics">Covering sustainability and climate issues</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-member-icon">🎤</div>
-                    <div class="team-member-role">Interviews</div>
-                    <div class="team-member-name">Kieran</div>
-                    <div class="team-member-topics">Conducting in-depth interviews</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-member-icon">🚀</div>
-                    <div class="team-member-role">Space</div>
-                    <div class="team-member-name">Tanay</div>
-                    <div class="team-member-topics">Exploring the cosmos and space news</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="team-member-icon">📚</div>
-                    <div class="team-member-role">Education</div>
-                    <div class="team-member-name">TBD</div>
-                    <div class="team-member-topics">Academic insights and learning resources</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Biography</span>
+                    </div>
                 </div>
 
                 <div class="team-member">
                     <div class="team-member-icon">✍️</div>
-                    <div class="team-member-role">Creative Writing</div>
-                    <div class="team-member-name">TBD</div>
-                    <div class="team-member-topics">Fiction, poetry, and creative expression</div>
+                    <div class="team-member-name">Calvin</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Politics</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Winston</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Politics</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Joise</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Politics</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Paul</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Technology</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Julian</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Technology</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Finn</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Sports</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Jason</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Sports</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Troy</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Sports</span>
+                        <span class="topic-badge">Technology</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Niamh</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Film</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Rian</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Environment</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Kieran</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Interviews</span>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Tanay</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Space</span>
+                    </div>
+                </div>
+
+                <div class="team-member" style="opacity: 0.6;">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Open Position</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Education</span>
+                    </div>
+                </div>
+
+                <div class="team-member" style="opacity: 0.6;">
+                    <div class="team-member-icon">✍️</div>
+                    <div class="team-member-name">Open Position</div>
+                    <div class="team-member-topics">
+                        <span class="topic-badge">Creative Writing</span>
+                    </div>
                 </div>
             </div>
         </div>

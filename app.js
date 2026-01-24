@@ -207,8 +207,10 @@ function openArchivePDF(filePath, fileName) {
     document.getElementById('modalTitle').textContent = fileName;
     document.getElementById('modalMeta').textContent = 'From the archives';
     
-    // Try direct PDF loading first (works on most browsers)
-    document.getElementById('pdfViewer').src = filePath;
+    // Use Google Docs Viewer as fallback for better PDF display
+    const fullUrl = `${window.location.origin}/${filePath}`;
+    const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(fullUrl)}&embedded=true`;
+    document.getElementById('pdfViewer').src = viewerUrl;
     
     showModal('articleModal');
 }
@@ -462,8 +464,10 @@ function openArticleModal(articleId) {
     document.getElementById('modalMeta').textContent = `By ${article.authorName || article.author} • ${formatDate(article.date)}`;
     
     if (article.pdfUrl) {
-        // Direct PDF loading
-        document.getElementById('pdfViewer').src = article.pdfUrl;
+        // Use Google Docs Viewer for better PDF display
+        const fullUrl = article.pdfUrl.startsWith('http') ? article.pdfUrl : `${window.location.origin}/${article.pdfUrl}`;
+        const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(fullUrl)}&embedded=true`;
+        document.getElementById('pdfViewer').src = viewerUrl;
     }
 
     showModal('articleModal');
