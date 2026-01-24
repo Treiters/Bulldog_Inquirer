@@ -207,8 +207,8 @@ function openArchivePDF(filePath, fileName) {
     document.getElementById('modalTitle').textContent = fileName;
     document.getElementById('modalMeta').textContent = 'From the archives';
     
-    const pdfViewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(window.location.origin + '/' + filePath)}`;
-    document.getElementById('pdfViewer').src = pdfViewerUrl;
+    // Try direct PDF loading first (works on most browsers)
+    document.getElementById('pdfViewer').src = filePath;
     
     showModal('articleModal');
 }
@@ -227,8 +227,7 @@ async function handleLogin() {
     try {
         await login(email, password);
         closeModal('loginModal');
-        showPage('admin');
-        renderAdminPage();
+        // Stay on current page instead of forcing to admin
         document.getElementById('loginEmail').value = '';
         document.getElementById('loginPassword').value = '';
         errorDiv.classList.add('hidden');
@@ -463,10 +462,8 @@ function openArticleModal(articleId) {
     document.getElementById('modalMeta').textContent = `By ${article.authorName || article.author} • ${formatDate(article.date)}`;
     
     if (article.pdfUrl) {
-        // Use PDF.js viewer to ensure PDFs display instead of download
-        // This works around GitHub's Content-Disposition headers
-        const pdfViewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(window.location.origin + '/' + article.pdfUrl)}`;
-        document.getElementById('pdfViewer').src = pdfViewerUrl;
+        // Direct PDF loading
+        document.getElementById('pdfViewer').src = article.pdfUrl;
     }
 
     showModal('articleModal');
