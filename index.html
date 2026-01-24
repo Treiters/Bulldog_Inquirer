@@ -419,6 +419,76 @@
             display: flex;
             gap: 0.5rem;
         }
+
+        /* Archive Browser Styles */
+        .archive-tree {
+            margin-top: 2rem;
+        }
+
+        .folder {
+            margin-left: 1.5rem;
+        }
+
+        .folder-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .folder-header:hover {
+            background: #f3f4f6;
+        }
+
+        .folder-icon {
+            font-size: 1.2rem;
+        }
+
+        .folder-name {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .folder-content {
+            display: none;
+            margin-left: 1rem;
+        }
+
+        .folder-content.open {
+            display: block;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            margin-left: 1.5rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .file-item:hover {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .file-icon {
+            font-size: 1rem;
+        }
+
+        .file-name {
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+
+        .file-item:hover .file-name {
+            color: #2563eb;
+        }
     </style>
 </head>
 <body>
@@ -434,6 +504,7 @@
             <nav class="nav">
                 <a class="nav-link active" data-page="home">Home</a>
                 <a class="nav-link" data-page="articles">Articles</a>
+                <a class="nav-link" data-page="archives">Archives</a>
                 <a class="nav-link hidden" id="adminNavLink" data-page="admin">Admin</a>
             </nav>
             <div id="userDisplay" class="hidden">
@@ -478,26 +549,23 @@
         </div>
     </div>
 
+    <div id="archives" class="page">
+        <div class="main-content">
+            <h2 style="font-size:3rem;margin-bottom:1rem">Archive Browser</h2>
+            <p style="color:#666;margin-bottom:2rem">Browse past issues and articles from previous years</p>
+            <div id="archiveTree" class="archive-tree">
+                <div class="loading">Loading archives...</div>
+            </div>
+        </div>
+    </div>
+
     <div id="admin" class="page">
         <div class="main-content">
             <h2 style="font-size:3rem;margin-bottom:2rem">Admin Dashboard</h2>
-            <div class="alert alert-warning">
-                <strong>Secure Connection:</strong> Firebase credentials protected by Netlify Functions
-            </div>
             <div class="admin-panel">
                 <h3 style="margin-bottom:1.5rem">Add New Article</h3>
                 <div class="pdf-upload-area" id="pdfUploadArea">
-                    <input type="file" id="pdfFileInput" accept=".pdf" class="hidden">
-                    <div id="uploadPrompt">
-                        <p style="font-size:1.2rem;margin-bottom:1rem">Upload Article PDF</p>
-                        <button type="button" class="btn btn-primary" onclick="document.getElementById('pdfFileInput').click()">
-                            Choose PDF File
-                        </button>
-                        <p style="margin-top:1rem;font-size:0.875rem;color:#666">
-                            or drag and drop here
-                        </p>
-                    </div>
-                    <div id="uploadStatus" class="hidden"></div>
+                    <!-- Will be populated by JavaScript -->
                 </div>
                 <div id="articleFormSection" class="hidden">
                     <div class="form-group">

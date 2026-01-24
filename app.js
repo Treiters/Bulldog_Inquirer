@@ -1,35 +1,25 @@
-// Initialize Firebase Client SDK (safe to be public)
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { auth, onAuthChange, login, logout, getArticles, addArticle, deleteArticle } from './firebase-config.js';
 
-// Your Firebase config (this is SAFE to be public!)
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAgD8oHQ2MHoKD3B60pNi_giKO9lcft4Gs",
-  authDomain: "bulldoginquirer.firebaseapp.com",
-  projectId: "bulldoginquirer",
-  storageBucket: "bulldoginquirer.firebasestorage.app",
-  messagingSenderId: "69389144325",
-  appId: "1:69389144325:web:fdcf8ef7eeeaa46280276c",
-  measurementId: "G-EFESP30LZX"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-const API_BASE = '/.netlify/functions';
 let currentUser = null;
-let currentUserData = null;
 let allArticles = [];
 let currentFilter = 'all';
 let currentSearch = '';
-let uploadedPdfUrl = null;
-let uploadedPdfFileName = null;
+let archiveData = null;
 
 async function init() {
     setupEventListeners();
+    
+    // Listen for auth state changes
+    onAuthChange((user) => {
+        currentUser = user;
+        updateUIForUser();
+        if (user && document.getElementById('admin').classList.contains('active')) {
+            renderAdminPage();
+        }
+    });
+    
     await loadArticles();
+    await loadArchives();
     renderHomePage();
     renderArticlesPage();
 }
@@ -67,88 +57,160 @@ function setupEventListeners() {
         });
     });
 
-    const uploadArea = document.getElementById('pdfUploadArea');
-    const fileInput = document.getElementById('pdfFileInput');
-    
-    fileInput.addEventListener('change', handleFileSelect);
-
-    uploadArea.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        uploadArea.classList.add('dragover');
-    });
-
-    uploadArea.addEventListener('dragleave', () => {
-        uploadArea.classList.remove('dragover');
-    });
-
-    uploadArea.addEventListener('drop', (e) => {
-        e.preventDefault();
-        uploadArea.classList.remove('dragover');
-        const files = e.dataTransfer.files;
-        if (files.length > 0 && files[0].type === 'application/pdf') {
-            fileInput.files = files;
-            handleFileSelect({ target: fileInput });
-        }
-    });
-
     document.getElementById('publishBtn').addEventListener('click', handlePublishArticle);
     document.getElementById('heroReadMore').addEventListener('click', () => showPage('articles'));
+    
+    // Remove PDF upload functionality - manual upload only
+    const uploadArea = document.getElementById('pdfUploadArea');
+    uploadArea.innerHTML = `
+        <p style="font-size:1.2rem;margin-bottom:1rem;color:#666">📁 Manual PDF Upload Required</p>
+        <ol style="text-align:left;max-width:600px;margin:0 auto;color:#666;line-height:1.8">
+            <li>Save your PDF to: <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px">pdfs/your-article.pdf</code></li>
+            <li>Commit and push to GitHub</li>
+            <li>Enter the filename below (e.g., <code style="background:#f3f4f6;padding:2px 6px;border-radius:4px">your-article.pdf</code>)</li>
+        </ol>
+        <div style="margin-top:2rem">
+            <input type="text" id="pdfFileName" placeholder="Enter PDF filename (e.g., spring-2025.pdf)" 
+                   style="width:100%;max-width:400px;padding:0.75rem;border:2px solid #e5e7eb;border-radius:8px;margin-bottom:1rem">
+            <button class="btn btn-primary" onclick="validatePdfFile()">Verify PDF</button>
+        </div>
+        <div id="pdfStatus" style="margin-top:1rem"></div>
+    `;
+    
+    // Show form immediately
+    document.getElementById('articleFormSection').classList.remove('hidden');
 }
 
-async function handleFileSelect(e) {
-    const file = e.target.files[0];
-    if (!file || file.type !== 'application/pdf') {
-        alert('Please select a PDF file');
+// Validate PDF exists in pdfs/ folder
+window.validatePdfFile = async function() {
+    const fileName = document.getElementById('pdfFileName').value.trim();
+    const statusDiv = document.getElementById('pdfStatus');
+    
+    if (!fileName) {
+        statusDiv.innerHTML = '<p style="color:#dc2626">Please enter a PDF filename</p>';
         return;
     }
-
-    const uploadStatus = document.getElementById('uploadStatus');
-    const uploadPrompt = document.getElementById('uploadPrompt');
     
-    uploadPrompt.classList.add('hidden');
-    uploadStatus.classList.remove('hidden');
-    uploadStatus.innerHTML = '<p>Uploading PDF...</p>';
-
+    // Check if file exists
+    const pdfUrl = `pdfs/${fileName}`;
+    
     try {
-        const formData = new FormData();
-        formData.append('file', file);
-
-        const response = await fetch(`${API_BASE}/upload-pdf`, {
-            method: 'POST',
-            body: formData
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-            uploadedPdfUrl = result.url;
-            uploadedPdfFileName = result.fileName;
-            uploadStatus.innerHTML = `<p style="color:#059669">PDF uploaded: ${file.name}</p>`;
-            document.getElementById('articleFormSection').classList.remove('hidden');
+        const response = await fetch(pdfUrl, { method: 'HEAD' });
+        if (response.ok) {
+            statusDiv.innerHTML = `<p style="color:#059669">✓ PDF found: ${fileName}</p>`;
+            document.getElementById('pdfFileName').dataset.verified = pdfUrl;
         } else {
-            throw new Error(result.error);
+            statusDiv.innerHTML = `<p style="color:#dc2626">✗ PDF not found. Make sure "${fileName}" is uploaded to the pdfs/ folder in GitHub</p>`;
         }
     } catch (error) {
-        console.error('Upload error:', error);
-        uploadStatus.innerHTML = `<p style="color:#dc2626">Upload failed: ${error.message}</p>`;
-        uploadPrompt.classList.remove('hidden');
+        statusDiv.innerHTML = `<p style="color:#dc2626">✗ Could not verify PDF. Make sure it's uploaded to GitHub first.</p>`;
     }
 }
 
 async function loadArticles() {
     try {
-        const response = await fetch(`${API_BASE}/firebase-api`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action: 'getArticles' })
-        });
-
-        const result = await response.json();
-        allArticles = result.success ? result.articles : [];
+        allArticles = await getArticles();
     } catch (error) {
         console.error('Error loading articles:', error);
         allArticles = [];
     }
+}
+
+async function loadArchives() {
+    try {
+        const response = await fetch('archive-index.json');
+        archiveData = await response.json();
+        renderArchives();
+    } catch (error) {
+        console.error('Error loading archives:', error);
+        document.getElementById('archiveTree').innerHTML = '<p style="color:#dc2626">Failed to load archives</p>';
+    }
+}
+
+function renderArchives() {
+    const container = document.getElementById('archiveTree');
+    if (!archiveData) {
+        container.innerHTML = '<p>No archives available</p>';
+        return;
+    }
+    
+    container.innerHTML = renderFolder(archiveData);
+    attachArchiveListeners();
+}
+
+function renderFolder(folder, level = 0) {
+    let html = '<div class="folder">';
+    
+    if (level > 0) {
+        html += `
+            <div class="folder-header" data-folder-id="${folder.name}">
+                <span class="folder-icon">📁</span>
+                <span class="folder-name">${folder.name}</span>
+            </div>
+        `;
+    }
+    
+    html += `<div class="folder-content ${level === 0 ? 'open' : ''}" id="folder-${folder.name}">`;
+    
+    if (folder.children) {
+        folder.children.forEach(child => {
+            if (child.type === 'folder') {
+                html += renderFolder(child, level + 1);
+            } else if (child.type === 'file') {
+                const isPdf = child.name.toLowerCase().endsWith('.pdf');
+                const icon = isPdf ? '📄' : '📝';
+                html += `
+                    <div class="file-item" data-file-path="${child.path}">
+                        <span class="file-icon">${icon}</span>
+                        <span class="file-name">${child.name}</span>
+                    </div>
+                `;
+            }
+        });
+    }
+    
+    html += '</div></div>';
+    return html;
+}
+
+function attachArchiveListeners() {
+    // Folder toggle
+    document.querySelectorAll('.folder-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const folderId = header.dataset.folderId;
+            const content = document.getElementById(`folder-${folderId}`);
+            if (content) {
+                content.classList.toggle('open');
+                const icon = header.querySelector('.folder-icon');
+                icon.textContent = content.classList.contains('open') ? '📂' : '📁';
+            }
+        });
+    });
+    
+    // File click
+    document.querySelectorAll('.file-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const filePath = item.dataset.filePath;
+            const fileName = item.querySelector('.file-name').textContent;
+            
+            if (fileName.toLowerCase().endsWith('.pdf')) {
+                openArchivePDF(filePath, fileName);
+            } else {
+                alert('Only PDF files can be viewed directly. This appears to be a Word document.');
+            }
+        });
+    });
+}
+
+function openArchivePDF(filePath, fileName) {
+    document.getElementById('modalCategory').textContent = 'Archive';
+    document.getElementById('modalTitle').textContent = fileName;
+    document.getElementById('modalMeta').textContent = 'From the archives';
+    
+    const pdfViewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(window.location.origin + '/' + filePath)}`;
+    document.getElementById('pdfViewer').src = pdfViewerUrl;
+    
+    showModal('articleModal');
 }
 
 async function handleLogin() {
@@ -163,38 +225,13 @@ async function handleLogin() {
     }
 
     try {
-        // Use Firebase Client SDK to authenticate (this verifies the password!)
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-        
-        // Get ID token
-        const token = await user.getIdToken();
-
-        // Get user data from your backend
-        const response = await fetch(`${API_BASE}/firebase-api`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                action: 'getUserData',
-                data: { uid: user.uid, token }
-            })
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-            currentUser = { token, uid: user.uid };
-            currentUserData = result.user;
-            updateUIForUser();
-            closeModal('loginModal');
-            showPage('admin');
-            renderAdminPage();
-            document.getElementById('loginEmail').value = '';
-            document.getElementById('loginPassword').value = '';
-            errorDiv.classList.add('hidden');
-        } else {
-            throw new Error(result.error);
-        }
+        await login(email, password);
+        closeModal('loginModal');
+        showPage('admin');
+        renderAdminPage();
+        document.getElementById('loginEmail').value = '';
+        document.getElementById('loginPassword').value = '';
+        errorDiv.classList.add('hidden');
     } catch (error) {
         console.error('Login error:', error);
         errorDiv.textContent = error.message || 'Invalid email or password';
@@ -202,10 +239,8 @@ async function handleLogin() {
     }
 }
 
-function handleLogout() {
-    currentUser = null;
-    currentUserData = null;
-    updateUIForUser();
+async function handleLogout() {
+    await logout();
     showPage('home');
 }
 
@@ -215,13 +250,12 @@ function updateUIForUser() {
     const userBadge = document.getElementById('userBadge');
     const adminNavLink = document.getElementById('adminNavLink');
 
-    if (currentUser && currentUserData) {
+    if (currentUser) {
         loginBtn.classList.add('hidden');
         userDisplay.classList.remove('hidden');
         adminNavLink.classList.remove('hidden');
-        const roleEmoji = currentUserData.role === 'admin' ? '👑' : '✍️';
-        userBadge.textContent = `${roleEmoji} ${currentUserData.fullName}`;
-        userBadge.className = `user-badge ${currentUserData.role}`;
+        userBadge.textContent = `👑 ${currentUser.email}`;
+        userBadge.className = 'user-badge admin';
     } else {
         loginBtn.classList.remove('hidden');
         userDisplay.classList.add('hidden');
@@ -230,8 +264,11 @@ function updateUIForUser() {
 }
 
 async function handlePublishArticle() {
-    if (!uploadedPdfUrl) {
-        alert('Please upload a PDF first');
+    const pdfFileInput = document.getElementById('pdfFileName');
+    const pdfUrl = pdfFileInput?.dataset.verified;
+    
+    if (!pdfUrl) {
+        alert('Please verify your PDF file first');
         return;
     }
 
@@ -251,89 +288,57 @@ async function handlePublishArticle() {
         category,
         author,
         authorName: author,
-        authorUid: currentUserData?.uid || 'unknown',
+        authorUid: currentUser?.uid || 'unknown',
         date: new Date().toISOString().split('T')[0],
         excerpt,
         content: '',
         featured,
-        pdfUrl: uploadedPdfUrl,
-        pdfFileName: uploadedPdfFileName
+        pdfUrl: pdfUrl,
+        pdfFileName: pdfFileInput.value
     };
 
     try {
-        const response = await fetch(`${API_BASE}/firebase-api`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                action: 'addArticle',
-                data: {
-                    userToken: currentUser.token,
-                    article
-                }
-            })
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-            alert('Article published successfully!');
-            
-            document.getElementById('articleTitle').value = '';
-            document.getElementById('articleAuthor').value = '';
-            document.getElementById('articleExcerpt').value = '';
-            document.getElementById('articleFeatured').checked = false;
-            document.getElementById('articleFormSection').classList.add('hidden');
-            document.getElementById('uploadPrompt').classList.remove('hidden');
-            document.getElementById('uploadStatus').classList.add('hidden');
-            document.getElementById('pdfFileInput').value = '';
-            uploadedPdfUrl = null;
-            uploadedPdfFileName = null;
-            
-            await loadArticles();
-            renderHomePage();
-            renderArticlesPage();
-            renderAdminPage();
-        } else {
-            throw new Error(result.error);
-        }
+        await addArticle(article);
+        alert('Article published successfully!');
+        
+        // Reset form
+        document.getElementById('articleTitle').value = '';
+        document.getElementById('articleAuthor').value = '';
+        document.getElementById('articleExcerpt').value = '';
+        document.getElementById('articleFeatured').checked = false;
+        document.getElementById('pdfFileName').value = '';
+        document.getElementById('pdfFileName').dataset.verified = '';
+        document.getElementById('pdfStatus').innerHTML = '';
+        
+        await loadArticles();
+        renderHomePage();
+        renderArticlesPage();
+        renderAdminPage();
     } catch (error) {
         console.error('Publish error:', error);
-        alert('Failed to publish article');
+        alert('Failed to publish article: ' + error.message);
     }
 }
 
-async function deleteArticle(articleId) {
+async function deleteArticleHandler(articleId) {
     if (!confirm('Are you sure you want to delete this article?')) return;
 
     try {
-        const response = await fetch(`${API_BASE}/firebase-api`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                action: 'deleteArticle',
-                data: {
-                    userToken: currentUser.token,
-                    articleId
-                }
-            })
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-            alert('Article deleted successfully!');
-            await loadArticles();
-            renderHomePage();
-            renderArticlesPage();
-            renderAdminPage();
-        } else {
-            throw new Error(result.error);
-        }
+        await deleteArticle(articleId);
+        alert('Article deleted successfully!');
+        await loadArticles();
+        renderHomePage();
+        renderArticlesPage();
+        renderAdminPage();
     } catch (error) {
         console.error('Delete error:', error);
-        alert('Failed to delete article');
+        alert('Failed to delete article: ' + error.message);
     }
 }
+
+// Make functions available globally
+window.deleteArticle = deleteArticleHandler;
+window.openArticleModal = openArticleModal;
 
 function showPage(pageId) {
     document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
@@ -458,7 +463,10 @@ function openArticleModal(articleId) {
     document.getElementById('modalMeta').textContent = `By ${article.authorName || article.author} • ${formatDate(article.date)}`;
     
     if (article.pdfUrl) {
-        document.getElementById('pdfViewer').src = article.pdfUrl;
+        // Use PDF.js viewer to ensure PDFs display instead of download
+        // This works around GitHub's Content-Disposition headers
+        const pdfViewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(window.location.origin + '/' + article.pdfUrl)}`;
+        document.getElementById('pdfViewer').src = pdfViewerUrl;
     }
 
     showModal('articleModal');
