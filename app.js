@@ -208,12 +208,12 @@ function openArchivePDF(filePath, fileName) {
     document.getElementById('modalMeta').textContent = 'From the archives';
     document.getElementById('modalExcerpt').textContent = 'View this archived article from our past issues.';
     
-    const pdfUrl = `${window.location.origin}/${filePath}`;
+    const directPdfUrl = filePath; // filePath already has the correct path
     
     // Set up button to open PDF in new tab
     const openPdfBtn = document.getElementById('openPdfBtn');
     openPdfBtn.onclick = () => {
-        window.open(pdfUrl, '_blank');
+        window.open(directPdfUrl, '_blank');
     };
     
     showModal('articleModal');
@@ -261,6 +261,11 @@ function updateUIForUser() {
         adminNavLink.classList.remove('hidden');
         userBadge.textContent = `👑 ${currentUser.email}`;
         userBadge.className = 'user-badge admin';
+        
+        // If we're on the admin page, render it
+        if (document.getElementById('admin').classList.contains('active')) {
+            renderAdminPage();
+        }
     } else {
         loginBtn.classList.remove('hidden');
         userDisplay.classList.add('hidden');
@@ -351,6 +356,12 @@ function showPage(pageId) {
     document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
     const activeLink = document.querySelector(`[data-page="${pageId}"]`);
     if (activeLink) activeLink.classList.add('active');
+    
+    // Render admin page when navigating to it
+    if (pageId === 'admin' && currentUser) {
+        renderAdminPage();
+    }
+    
     window.scrollTo(0, 0);
 }
 
@@ -469,12 +480,14 @@ function openArticleModal(articleId) {
     document.getElementById('modalExcerpt').textContent = article.excerpt || 'Read the full article to learn more.';
     
     if (article.pdfUrl) {
-        const pdfUrl = article.pdfUrl.startsWith('http') ? article.pdfUrl : `${window.location.origin}/${article.pdfUrl}`;
+        const directPdfUrl = article.pdfUrl.startsWith('http') 
+            ? article.pdfUrl 
+            : `${window.location.origin}/${article.pdfUrl}`;
         
         // Set up button to open PDF in new tab
         const openPdfBtn = document.getElementById('openPdfBtn');
         openPdfBtn.onclick = () => {
-            window.open(pdfUrl, '_blank');
+            window.open(directPdfUrl, '_blank');
         };
     }
 
